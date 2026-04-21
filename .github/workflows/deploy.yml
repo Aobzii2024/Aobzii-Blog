@@ -11,6 +11,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,7 +39,7 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm run verify
 
-      - name: Clean remote web root
+      - name: Prepare remote web root
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -58,7 +59,9 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: "Blog-Main/public/*"
-          target: "/var/www/ramblings.aobzii.top"
+          target: "/var/www/ramblings.aobzii.top/"
+          strip_components: 2
+          overwrite: true
 
       - name: Reload nginx
         uses: appleboy/ssh-action@v1.2.0
