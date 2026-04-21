@@ -1,0 +1,1845 @@
+/* dm-serif-display-regular - latin */
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/dm-serif-display-v4-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('DM Serif Display Regular'), local('DMSerifDisplay-Regular'),
+       url('../fonts/dm-serif-display-v4-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/dm-serif-display-v4-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/dm-serif-display-v4-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/dm-serif-display-v4-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/dm-serif-display-v4-latin-regular.svg#DMSerifDisplay') format('svg'); /* Legacy iOS */
+
+  font-display: swap; /* Add font-display */
+}
+
+/* inter-regular - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/inter-v2-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/inter-v2-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/inter-v2-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/inter-v2-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/inter-v2-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/inter-v2-latin-regular.svg#Inter') format('svg'); /* Legacy iOS */
+
+  font-display: swap; /* Add font-display */
+}
+
+@font-face {
+  font-family: 'ToneOZ Tsuipita TC';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/ToneOZ-Tsuipita-TC.ttf') format('truetype');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Qiushui Shotai Bright';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/QiushuiShotaiBright.ttf') format('truetype');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'HONOR Sans TC';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/HONORSansTC-Regular.ttf') format('truetype');
+  font-display: block;
+}
+
+html {
+  overflow: auto;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "ToneOZ Tsuipita TC";
+}
+
+img {
+  max-width: 100%;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  margin-bottom: 0.45rem;
+}
+
+@media (min-width: 550px) {
+  /*
+  Side by side gallery
+  use with </> alignment
+  e.g.
+  [_gallery >](imgages/test.jpg)
+  */
+  img[alt~="_gallery"] {
+    max-width: 49.5%;
+  }
+
+  /* Aligned to the right */
+  img[alt$=">"] {
+    float: right;
+  }
+
+  /* Aligned to the left */
+  img[alt$="<"] {
+    float: left;
+  }
+
+  /* Centered image */
+  img[alt$="><"] {
+    display: block;
+    margin: auto;
+    float: none !important;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  margin-left: 0;
+}
+
+.lit {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.little-svg {
+  fill: #fff;
+}
+
+.ml-0 {
+  margin-left: 0.7rem;
+}
+
+.ml {
+  margin-left: 4.8rem;
+}
+
+.ml-1 {
+  margin-left: 5rem;
+}
+
+.bottom {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-bottom: 0px;
+}
+
+.mb-1 {
+  margin-bottom: 0px;
+}
+
+.mb-2 {
+  margin-bottom: 5px;
+}
+
+.mb-3 {
+  margin-bottom: 20px;
+}
+
+.mr {
+  margin-right: 32px;
+}
+
+.mt-0 {
+  margin-top: 0px;
+}
+
+.mt-2 {
+  margin-top: 3rem;
+}
+
+.mt-3 {
+  margin-top: 4rem;
+}
+
+.mx-auto {
+  margin: auto;
+}
+
+.mode {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.mode-column {
+  max-width: 50px;
+}
+
+.header-divider {
+  margin-bottom: 2.6rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3.8rem;
+  margin-top: 1rem;
+}
+
+.nav-links .ml {
+  margin-left: 0;
+}
+
+.tag-link {
+  margin-right: 10px;
+}
+
+.about {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.interactive-link,
+.markdown-content p a,
+.markdown-content li a,
+.markdown-content h2 a:not(.headerlink),
+.markdown-content h3 a:not(.headerlink),
+.markdown-content table a {
+  color: rgba(0, 0, 0, 0.82);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  padding: 0.05em 0.3em;
+  margin: 0 -0.18em;
+  border-radius: 0.6em;
+  background: transparent;
+  box-shadow: none;
+  transition: color 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease, backdrop-filter 0.22s ease, -webkit-backdrop-filter 0.22s ease;
+}
+
+.interactive-toggle {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+
+body.darkmode .trans {
+  background: transparent;
+  box-shadow: none;
+}
+
+.interactive-link::before,
+.markdown-content p a::before,
+.markdown-content li a::before,
+.markdown-content h2 a:not(.headerlink)::before,
+.markdown-content h3 a:not(.headerlink)::before,
+.markdown-content table a::before {
+  content: "";
+  position: absolute;
+  left: 0.3em;
+  right: 0.3em;
+  bottom: 0.12em;
+  border-bottom: 2px dotted currentColor;
+  opacity: 0.5;
+  transition: opacity 0.22s ease;
+}
+
+.interactive-link:hover,
+.interactive-link:focus,
+.interactive-link:active {
+  color: inherit;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.markdown-content p a:hover,
+.markdown-content li a:hover,
+.markdown-content h2 a:not(.headerlink):hover,
+.markdown-content h3 a:not(.headerlink):hover,
+.markdown-content table a:hover {
+  color: inherit;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.interactive-link:hover::before,
+.interactive-link:focus::before,
+.interactive-link:active::before,
+.markdown-content p a:hover::before,
+.markdown-content p a:focus::before,
+.markdown-content p a:active::before,
+.markdown-content li a:hover::before,
+.markdown-content li a:focus::before,
+.markdown-content li a:active::before,
+.markdown-content h2 a:not(.headerlink):hover::before,
+.markdown-content h2 a:not(.headerlink):focus::before,
+.markdown-content h2 a:not(.headerlink):active::before,
+.markdown-content h3 a:not(.headerlink):hover::before,
+.markdown-content h3 a:not(.headerlink):focus::before,
+.markdown-content h3 a:not(.headerlink):active::before,
+.markdown-content table a:hover::before,
+.markdown-content table a:focus::before,
+.markdown-content table a:active::before {
+  opacity: 0;
+}
+
+@supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  .interactive-link:hover,
+  .markdown-content p a:hover,
+  .markdown-content li a:hover,
+  .markdown-content h2 a:not(.headerlink):hover,
+  .markdown-content h3 a:not(.headerlink):hover,
+  .markdown-content table a:hover {
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    backdrop-filter: blur(10px) saturate(120%);
+  }
+}
+
+.post-shell {
+  width: 100%;
+}
+
+.post-header {
+  margin-bottom: 2.5rem;
+}
+
+.post-title {
+  margin-bottom: 0.75rem;
+  font-size: 3.4rem;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.58);
+  font-size: 1.45rem;
+}
+
+.post-tags .tag-link {
+  margin-right: 0.85rem;
+}
+
+.post-meta-sep {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.post-content {
+  color: inherit;
+  line-height: 1.8;
+  font-family: "Qiushui Shotai Bright" !important;
+  font-size: 1.25rem;
+}
+
+.post-content > :first-child {
+  margin-top: 0;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  font-family: "Qiushui Shotai Bright" !important;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.post-content *:not(pre):not(code):not(kbd):not(samp) {
+  font-family: "Qiushui Shotai Bright" !important;
+}
+
+.post-content .markdown-content p,
+.post-content .markdown-content li,
+.post-content .markdown-content ul,
+.post-content .markdown-content ol,
+.post-content .markdown-content blockquote,
+.post-content .markdown-content table,
+.post-content .markdown-content td,
+.post-content .markdown-content th {
+  font-size: 1.25rem !important;
+}
+
+.markdown-content h1 {
+  padding: 0.5rem 0;
+  margin: 2.8rem 0 1rem;
+  font-size: 2.8rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.markdown-content h2 {
+  padding: 0.4rem 0;
+  margin: 2.5rem 0 1rem;
+  font-size: 2.3rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.markdown-content h3 {
+  margin: 2rem 0 0.9rem;
+  font-size: 1.95rem;
+  font-weight: 600;
+}
+
+.markdown-content h4 {
+  margin: 1.8rem 0 0.8rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.markdown-content h5 {
+  margin: 1.4rem 0 0.6rem;
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+
+.markdown-content h6 {
+  margin: 1.2rem 0 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.markdown-content p {
+  margin: 0.95rem 0;
+  font-size: 1.75rem;
+  text-align: justify;
+}
+
+.post-title,
+.post-meta,
+.post-end-meta,
+.post-toc-nav a,
+#madewith,
+.posisi,
+.lit,
+.bottom,
+.pagination,
+.pagination a,
+.nav-links,
+.nav-links a,
+.footer-link,
+.post-end-meta-label,
+.post-end-meta-value {
+  font-family: "ToneOZ Tsuipita TC";
+}
+
+.markdown-content strong {
+  font-weight: 700;
+}
+
+.markdown-content em {
+  font-style: italic;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 1.1rem 0;
+  padding-left: 2.1rem;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+}
+
+.markdown-content li {
+  margin: 0.45rem 0;
+  font-size: 1.68rem;
+}
+
+.markdown-content li::marker {
+  transition: color 0.2s ease;
+}
+
+.markdown-content li:hover::marker {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.markdown-content li > ul,
+.markdown-content li > ol {
+  margin: 0.2rem 0;
+}
+
+.markdown-content blockquote {
+  font-family: "ToneOZ Tsuipita TC";
+  margin: 1.8rem 0;
+  padding: 0.2rem 1.4rem;
+  border-left-width: 4px;
+  background-color: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.62);
+}
+
+.markdown-content p code,
+.markdown-content li code,
+.markdown-content h2 code,
+.markdown-content h3 code,
+.markdown-content table code {
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.05);
+  font-family: Consolas, Monaco, monospace;
+  font-size: 0.9em;
+}
+
+.markdown-content figure.highlight,
+.markdown-content pre {
+  margin: 1.2rem 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  background: #f6f8fb;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
+}
+
+.markdown-content figure.highlight table {
+  margin: 0;
+  width: 100%;
+  border: 0;
+}
+
+.markdown-content figure.highlight td {
+  padding: 0;
+  border: 0;
+}
+
+.markdown-content figure.highlight .gutter {
+  width: 4.8rem;
+  color: rgba(0, 0, 0, 0.35);
+  background: rgba(15, 23, 42, 0.04);
+  user-select: none;
+}
+
+.markdown-content figure.highlight .gutter pre,
+.markdown-content figure.highlight .code pre {
+  margin: 0;
+  padding: 1.25rem 1.4rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.markdown-content figure.highlight .gutter pre {
+  padding-right: 1rem;
+  text-align: right;
+}
+
+.markdown-content figure.highlight .code pre {
+  overflow-x: auto;
+}
+
+.markdown-content pre code,
+.markdown-content figure.highlight code,
+.markdown-content figure.highlight .line {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 1.45rem;
+  line-height: 1.7;
+}
+
+.markdown-content .comment,
+.markdown-content .quote {
+  color: #6b7280;
+}
+
+.markdown-content .string,
+.markdown-content .number,
+.markdown-content .literal,
+.markdown-content .params,
+.markdown-content .addition {
+  color: #0f766e;
+}
+
+.markdown-content .title,
+.markdown-content .section,
+.markdown-content .selector-id,
+.markdown-content .selector-class,
+.markdown-content .attribute {
+  color: #7c3aed;
+}
+
+.markdown-content .keyword,
+.markdown-content .selector-tag,
+.markdown-content .built_in,
+.markdown-content .name,
+.markdown-content .tag {
+  color: #2563eb;
+}
+
+.markdown-content .symbol,
+.markdown-content .bullet,
+.markdown-content .link {
+  color: #db2777;
+}
+
+.markdown-content hr {
+  margin: 2.2rem 0;
+  border: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.markdown-content table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-content tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.markdown-content tbody tr:hover {
+  background-color: rgba(15, 160, 206, 0.08);
+}
+
+.markdown-content th,
+.markdown-content td {
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.markdown-content th {
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.markdown-content img {
+  display: block;
+  margin: 1.4rem auto;
+  border-radius: 10px;
+}
+
+.headerlink {
+  margin-right: 0.45rem;
+  color: rgba(0, 0, 0, 0.22);
+  background-image: none !important;
+  text-decoration: none !important;
+  padding: 0;
+  margin-left: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.headerlink::before {
+  display: none !important;
+}
+
+.headerlink:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* Momo-like markdown style (keep code blocks untouched) */
+.markdown-content {
+  line-height: 1.75;
+}
+
+.markdown-content h1 {
+  padding: 0.5rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  border-bottom: 1px solid currentColor;
+}
+
+.markdown-content h2 {
+  padding: 0.4rem 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1.8rem 0 1rem;
+  border-bottom: 1px solid currentColor;
+}
+
+.markdown-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.8rem;
+}
+
+.markdown-content h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.6rem;
+}
+
+.markdown-content h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+.markdown-content h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+.markdown-content p {
+  margin: 0.8rem 0;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.markdown-content p a,
+.markdown-content li a,
+.markdown-content h2 a:not(.headerlink),
+.markdown-content h3 a:not(.headerlink),
+.markdown-content table a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  padding: 0.05em 0.3em;
+  margin: 0 -0.18em;
+  border-radius: 0.6em;
+  background: transparent;
+  box-shadow: none;
+  transition: color 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease, backdrop-filter 0.22s ease, -webkit-backdrop-filter 0.22s ease;
+}
+
+.markdown-content p a::before,
+.markdown-content li a::before,
+.markdown-content h2 a:not(.headerlink)::before,
+.markdown-content h3 a:not(.headerlink)::before,
+.markdown-content table a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.2em;
+  border-bottom: 2px dotted currentColor;
+  opacity: 1;
+  transition: transform 0.3s ease;
+  transform-origin: right;
+  transform: scaleX(1);
+}
+
+.markdown-content p a:hover,
+.markdown-content li a:hover,
+.markdown-content h2 a:not(.headerlink):hover,
+.markdown-content h3 a:not(.headerlink):hover,
+.markdown-content table a:hover {
+  color: inherit;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.markdown-content p a:hover::before,
+.markdown-content p a:focus::before,
+.markdown-content p a:active::before,
+.markdown-content li a:hover::before,
+.markdown-content li a:focus::before,
+.markdown-content li a:active::before,
+.markdown-content h2 a:not(.headerlink):hover::before,
+.markdown-content h2 a:not(.headerlink):focus::before,
+.markdown-content h2 a:not(.headerlink):active::before,
+.markdown-content h3 a:not(.headerlink):hover::before,
+.markdown-content h3 a:not(.headerlink):focus::before,
+.markdown-content h3 a:not(.headerlink):active::before,
+.markdown-content table a:focus::before,
+.markdown-content table a:active::before,
+.markdown-content table a:hover::before {
+  transform: scaleX(0);
+}
+
+.markdown-content ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.markdown-content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.markdown-content li {
+  margin: 0.3rem 0;
+}
+
+.markdown-content li > ul,
+.markdown-content li > ol {
+  margin: 0;
+}
+
+.markdown-content blockquote {
+  margin: 1.5rem 0;
+  padding: 0.1rem 1.2rem;
+  border-left: 4px solid rgba(0, 0, 0, 0.14);
+  background-color: rgba(0, 0, 0, 0.03);
+  color: #666;
+}
+
+body.darkmode .markdown-content blockquote {
+  border-left-color: rgba(255, 255, 255, 0.22);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #aaa;
+}
+
+.markdown-content table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-content tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+body.darkmode .markdown-content tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.markdown-content th,
+.markdown-content td {
+  padding: 0.5rem 1rem;
+}
+
+.post-toc {
+  display: none;
+}
+
+.post-toc.is-ready {
+  display: block;
+}
+
+.post-toc-inner {
+  padding-left: 0.4rem;
+}
+
+.post-toc-nav a {
+  display: block;
+  margin: 0.2rem 0;
+  padding: 0.28rem 0;
+  color: rgba(0, 0, 0, 0.5);
+  background-image: none !important;
+  text-decoration: none !important;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.45;
+  border: 0 !important;
+  box-shadow: none !important;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post-end-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.post-end-meta-item {
+  min-width: 0;
+}
+
+.post-end-meta-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.post-end-meta-value {
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 1.45rem;
+  line-height: 1.5;
+}
+
+.post-end-meta-tags .tag-link {
+  margin-right: 0.8rem;
+}
+
+.post-toc-nav a[data-level="3"] {
+  padding-left: 1.1rem;
+}
+
+.post-toc-nav a[data-level="4"] {
+  padding-left: 2rem;
+}
+
+.post-toc-nav a[data-level="5"] {
+  padding-left: 2.9rem;
+}
+
+.post-toc-nav a[data-level="6"] {
+  padding-left: 3.8rem;
+}
+
+code:not(pre code) {
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+  padding: 0px 2px;
+  font-size: 85%;
+}
+
+body.darkmode code:not(pre code) {
+  background-color: rgb(65, 65, 65);
+}
+
+body.darkmode .post-meta {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+body.darkmode .post-meta-sep,
+body.darkmode .headerlink {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+body.darkmode .markdown-content h1,
+body.darkmode .markdown-content h2 {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+body.darkmode .markdown-content blockquote {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body.darkmode .markdown-content p code,
+body.darkmode .markdown-content li code,
+body.darkmode .markdown-content h2 code,
+body.darkmode .markdown-content h3 code,
+body.darkmode .markdown-content table code {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.darkmode .interactive-link,
+body.darkmode .markdown-content p a,
+body.darkmode .markdown-content li a,
+body.darkmode .markdown-content h2 a:not(.headerlink),
+body.darkmode .markdown-content h3 a:not(.headerlink),
+body.darkmode .markdown-content table a {
+  color: rgba(255, 255, 255, 0.82);
+  background: transparent;
+}
+
+body.darkmode .interactive-link:hover,
+body.darkmode .interactive-link:focus,
+body.darkmode .interactive-link:active {
+  color: inherit;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+body.darkmode .markdown-content p a:hover,
+body.darkmode .markdown-content li a:hover,
+body.darkmode .markdown-content h2 a:not(.headerlink):hover,
+body.darkmode .markdown-content h3 a:not(.headerlink):hover,
+body.darkmode .markdown-content table a:hover {
+  color: inherit;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+body.darkmode .interactive-link::before,
+body.darkmode .markdown-content p a::before,
+body.darkmode .markdown-content li a::before,
+body.darkmode .markdown-content h2 a:not(.headerlink)::before,
+body.darkmode .markdown-content h3 a:not(.headerlink)::before,
+body.darkmode .markdown-content table a::before {
+  opacity: 0.45;
+}
+
+body.darkmode .headerlink:hover {
+  color: rgba(255, 255, 255, 0.56);
+}
+
+body.darkmode .markdown-content figure.highlight,
+body.darkmode .markdown-content pre {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: #11161d;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+body.darkmode .markdown-content figure.highlight .gutter {
+  color: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+body.darkmode .markdown-content .comment,
+body.darkmode .markdown-content .quote {
+  color: #8b98ab;
+}
+
+body.darkmode .markdown-content .string,
+body.darkmode .markdown-content .number,
+body.darkmode .markdown-content .literal,
+body.darkmode .markdown-content .params,
+body.darkmode .markdown-content .addition {
+  color: #5eead4;
+}
+
+body.darkmode .markdown-content .title,
+body.darkmode .markdown-content .section,
+body.darkmode .markdown-content .selector-id,
+body.darkmode .markdown-content .selector-class,
+body.darkmode .markdown-content .attribute {
+  color: #c084fc;
+}
+
+body.darkmode .markdown-content .keyword,
+body.darkmode .markdown-content .selector-tag,
+body.darkmode .markdown-content .built_in,
+body.darkmode .markdown-content .name,
+body.darkmode .markdown-content .tag {
+  color: #60a5fa;
+}
+
+body.darkmode .markdown-content .symbol,
+body.darkmode .markdown-content .bullet,
+body.darkmode .markdown-content .link {
+  color: #f472b6;
+}
+
+body.darkmode .markdown-content hr {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+body.darkmode .markdown-content tbody tr:hover {
+  background-color: rgba(15, 160, 206, 0.12);
+}
+
+body.darkmode .markdown-content th,
+body.darkmode .markdown-content td {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.darkmode .markdown-content th {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.darkmode .post-toc-inner {
+  border-left-color: transparent;
+}
+
+body.darkmode .post-toc-nav a {
+  color: rgba(255, 255, 255, 0.56);
+}
+
+body.darkmode .post-end-meta {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+body.darkmode .post-end-meta-label {
+  color: rgba(255, 255, 255, 0.52);
+}
+
+body.darkmode .post-end-meta-value {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* blockquote */
+blockquote {
+  font-family: "ToneOZ Tsuipita TC";
+  background-color: rgba(148, 148, 149, 0.08) ;
+  margin: 1.5em 0px;
+  padding: 1.1em 20px 1px 20px;
+  font-style: italic;
+}
+
+blockquote footer {
+  font-family: "ToneOZ Tsuipita TC";
+  font-size: 16px;
+  padding-bottom: 10px;
+  margin-top: -10px;
+}
+
+blockquote footer cite:before {
+  content: "—";
+  padding: 0 0.5em;
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(128 128 128 / 70%);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgb(128 128 128 / 20%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgb(128 128 128 / 100%);
+}
+
+/* Footer */
+a.footer-link:hover,
+a.footer-link:focus {
+  cursor: pointer;
+}
+
+a.footer-link {
+  text-decoration: none;
+}
+
+.footer-divider {
+  margin: 2.4rem 0 1.6rem;
+  border: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.14);
+}
+
+body.darkmode .footer-divider {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.svg-hov {
+  transition: all .2s ease-in-out;
+}
+.svg-hov:hover {
+  transform: translateY(-3px);
+}
+
+.hexo {
+  fill: #03adfc;
+  vertical-align: middle;
+  padding-bottom: 4px;
+}
+
+.github {
+  fill: #63636F;
+}
+.outlook {
+  fill: #0a5bd3;
+}
+.netease {
+  fill: #d43c33;
+}
+.telegram {
+  fill: #26a5e4;
+}
+.nanobar {
+  left: 0;
+}
+
+body {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  padding: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+body.darkmode {
+  background: rgb(34, 34, 38);
+  color: rgb(230, 230, 230);
+}
+
+.trans {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+.archive-item-tags {
+  margin-top: 0;
+  margin-left: auto;
+  text-align: right;
+  white-space: nowrap;
+  font-size: 1.3rem;
+}
+
+.archive-item-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.archive-item-title-row > .interactive-link {
+  min-width: 0;
+}
+
+.archive-item-tags .tag-link {
+  display: inline-block;
+  margin: 0 0 0 0.45rem;
+  padding: 0.08em 0.55em;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.06);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+body.darkmode .archive-item-tags .tag-link {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.archive-switch {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.4rem;
+}
+
+.archive-switch-link {
+  padding: 0;
+  border: 0;
+}
+
+.archive-switch-link.is-active {
+  font-weight: 500;
+}
+
+.post-search-wrap {
+  margin: 0 0 1.2rem;
+}
+
+.post-search-input {
+  width: auto;
+  min-width: 28ch;
+  max-width: 34ch;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  color: inherit;
+}
+
+.post-search-input:focus {
+  border-color: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.08);
+  outline: none;
+}
+
+body.darkmode .post-search-input {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+}
+
+body.darkmode .post-search-input:focus {
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.archive-group {
+  margin-bottom: 1.6rem;
+}
+
+.archive-shell-time .archive-group {
+  position: relative;
+  margin-left: 1.4rem;
+  padding-left: 1.5rem;
+}
+
+.archive-shell-time .archive-group::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: -1.1rem;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.archive-shell-time .archive-group:last-of-type::before {
+  bottom: 0.9rem;
+}
+
+.archive-group-title {
+  margin-bottom: 0.8rem;
+}
+
+.archive-shell-time .archive-group-title {
+  position: relative;
+}
+
+.archive-shell-time .archive-group-title::before {
+  content: '';
+  position: absolute;
+  left: -2.05rem;
+  top: 0.72rem;
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.46);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.92);
+}
+
+.archive-item {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 0.9rem;
+  margin-bottom: 0.7rem;
+}
+
+.archive-shell-time .archive-item {
+  position: relative;
+}
+
+.archive-shell-time .archive-item::before {
+  content: '';
+  position: absolute;
+  left: -2.05rem;
+  top: 0.9rem;
+  width: 0.46rem;
+  height: 0.46rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.archive-item-date {
+  font-size: 1.3rem;
+  opacity: 0.76;
+}
+
+body.darkmode .archive-shell-time .archive-group::before {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+body.darkmode .archive-shell-time .archive-group-title::before {
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 0 0 3px rgba(34, 34, 38, 0.95);
+}
+
+body.darkmode .archive-shell-time .archive-item::before {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.daily-card {
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  padding: 1.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: none;
+}
+
+body.darkmode .daily-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.daily-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.daily-tag {
+  font-size: 1.25rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.daily-time {
+  font-size: 1.3rem;
+  opacity: 0.75;
+}
+
+.page-content h2 {
+  margin-bottom: 1.2rem;
+}
+
+.trans {
+  animation: transitionFade 0.35s ease-out;
+}
+
+@keyframes transitionFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+#madewith {
+  text-align: center;
+}
+
+.posisi {
+  text-align: center;
+}
+
+@media (min-width: 550px) {
+  .posisi {
+    text-align: right;
+  }
+
+  .post-title {
+    font-size: 4.2rem;
+  }
+
+  #madewith {
+    text-align: left;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .post-shell {
+    padding-right: 260px;
+  }
+
+  .post-main {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .post-toc {
+    position: fixed;
+    top: 20.4rem;
+    transform: translateX(-30px);
+    right: max(2rem, calc(50vw - 515px));
+    width: 200px;
+    max-height: calc(100vh - 14rem);
+    overflow: auto;
+    z-index: 2;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .post-toc {
+    right: 2rem;
+    width: 180px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .post-toc {
+    display: none !important;
+  }
+
+  .post-end-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 5px;
+  }
+
+  .trans {
+    border-radius: 0;
+  }
+
+  .archive-item {
+    grid-template-columns: 72px 1fr;
+    gap: 0.6rem;
+  }
+}
+
+/* Keep hover effect same as homepage interactive-link */
+.tag-link,
+.classtest-link,
+.archive-switch-link,
+.post-toc-nav a,
+.pagination a {
+  color: rgba(0, 0, 0, 0.82);
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  padding: 0.05em 0.3em;
+  margin: 0 -0.18em;
+  border-radius: 0.6em;
+  background: transparent;
+  box-shadow: none;
+  transition: color 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease, backdrop-filter 0.22s ease, -webkit-backdrop-filter 0.22s ease;
+  text-decoration: none;
+}
+
+.tag-link::before,
+.classtest-link::before,
+.archive-switch-link::before,
+.post-toc-nav a::before,
+.pagination a::before {
+  content: "";
+  position: absolute;
+  left: 0.3em;
+  right: 0.3em;
+  bottom: 0.12em;
+  border-bottom: 2px dotted currentColor;
+  opacity: 0.5;
+  transition: opacity 0.22s ease;
+}
+
+.tag-link:hover,
+.tag-link:focus,
+.tag-link:active,
+.classtest-link:hover,
+.classtest-link:focus,
+.classtest-link:active,
+.archive-switch-link:hover,
+.archive-switch-link:focus,
+.archive-switch-link:active,
+.post-toc-nav a:hover,
+.post-toc-nav a:focus,
+.post-toc-nav a:active,
+.pagination a:hover,
+.pagination a:focus,
+.pagination a:active {
+  color: inherit;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.tag-link:hover::before,
+.tag-link:focus::before,
+.tag-link:active::before,
+.classtest-link:hover::before,
+.classtest-link:focus::before,
+.classtest-link:active::before,
+.archive-switch-link:hover::before,
+.archive-switch-link:focus::before,
+.archive-switch-link:active::before,
+.post-toc-nav a:hover::before,
+.post-toc-nav a:focus::before,
+.post-toc-nav a:active::before,
+.pagination a:hover::before,
+.pagination a:focus::before,
+.pagination a:active::before {
+  opacity: 0;
+}
+
+@supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  .tag-link:hover,
+  .classtest-link:hover,
+  .archive-switch-link:hover,
+  .post-toc-nav a:hover,
+  .pagination a:hover {
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    backdrop-filter: blur(10px) saturate(120%);
+  }
+}
+
+body.darkmode .tag-link,
+body.darkmode .classtest-link,
+body.darkmode .archive-switch-link,
+body.darkmode .post-toc-nav a,
+body.darkmode .pagination a {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+body.darkmode .tag-link:hover,
+body.darkmode .tag-link:focus,
+body.darkmode .tag-link:active,
+body.darkmode .classtest-link:hover,
+body.darkmode .classtest-link:focus,
+body.darkmode .classtest-link:active,
+body.darkmode .archive-switch-link:hover,
+body.darkmode .archive-switch-link:focus,
+body.darkmode .archive-switch-link:active,
+body.darkmode .post-toc-nav a:hover,
+body.darkmode .post-toc-nav a:focus,
+body.darkmode .post-toc-nav a:active,
+body.darkmode .pagination a:hover,
+body.darkmode .pagination a:focus,
+body.darkmode .pagination a:active {
+  color: inherit;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .archive-shell-time .archive-group {
+    margin-left: 0.9rem;
+    padding-left: 1.1rem;
+  }
+
+  .archive-shell-time .archive-group-title::before {
+    left: -1.55rem;
+  }
+
+  .archive-shell-time .archive-item::before {
+    left: -1.55rem;
+  }
+
+  .archive-item-title-row {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .archive-item-tags {
+    margin-left: 0;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .archive-item-tags .tag-link {
+    margin: 0 0.45rem 0.35rem 0;
+  }
+}
+
+/* Keep dotted underline disabled only for non-requested areas */
+.tag-link::before,
+.classtest-link::before,
+.post-toc-nav a::before,
+.pagination a::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Navbar links do not show dotted underline */
+.nav-links .interactive-link::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Global font: quote-card font everywhere except code */
+html,
+body,
+body *:not(pre):not(code):not(kbd):not(samp) {
+  font-family: "ToneOZ Tsuipita TC" !important;
+}
+
+pre,
+code,
+kbd,
+samp,
+.markdown-content pre code,
+.markdown-content figure.highlight code,
+.markdown-content figure.highlight .line {
+  font-family: Consolas, Monaco, monospace !important;
+}
+
+/* All clickable text turns light green on focus/hover/active */
+:root {
+  --click-focus-color: #8fcf9d;
+}
+
+/* MathJax display tuning */
+.markdown-content mjx-container {
+  font-size: 1em;
+}
+
+.markdown-content mjx-container[display="true"] {
+  margin: 1.2rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2rem 0;
+}
+
+.interactive-link:hover,
+.interactive-link:focus,
+.interactive-link:active,
+.tag-link:hover,
+.tag-link:focus,
+.tag-link:active,
+.classtest-link:hover,
+.classtest-link:focus,
+.classtest-link:active,
+.archive-switch-link:hover,
+.archive-switch-link:focus,
+.archive-switch-link:active,
+.post-toc-nav a:hover,
+.post-toc-nav a:focus,
+.post-toc-nav a:active,
+.pagination a:hover,
+.pagination a:focus,
+.pagination a:active,
+.markdown-content p a:hover,
+.markdown-content p a:focus,
+.markdown-content p a:active,
+.markdown-content li a:hover,
+.markdown-content li a:focus,
+.markdown-content li a:active,
+.markdown-content h2 a:not(.headerlink):hover,
+.markdown-content h2 a:not(.headerlink):focus,
+.markdown-content h2 a:not(.headerlink):active,
+.markdown-content h3 a:not(.headerlink):hover,
+.markdown-content h3 a:not(.headerlink):focus,
+.markdown-content h3 a:not(.headerlink):active,
+.markdown-content table a:hover,
+.markdown-content table a:focus,
+.markdown-content table a:active,
+.headerlink:hover,
+.headerlink:focus,
+.headerlink:active {
+  color: var(--click-focus-color) !important;
+}
+
+/* Tag focus/hover must match Home exactly in all locations */
+.post-tags .tag-link:is(:hover, :focus, :active),
+.post-end-meta-tags .tag-link:is(:hover, :focus, :active),
+.archive-item-tags .tag-link:is(:hover, :focus, :active),
+.post-tags .classtest-link:is(:hover, :focus, :active),
+.post-end-meta-tags .classtest-link:is(:hover, :focus, :active),
+.archive-item-tags .classtest-link:is(:hover, :focus, :active) {
+  color: var(--click-focus-color) !important;
+  background: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14) !important;
+}
+
+body.darkmode .post-tags .tag-link:is(:hover, :focus, :active),
+body.darkmode .post-end-meta-tags .tag-link:is(:hover, :focus, :active),
+body.darkmode .archive-item-tags .tag-link:is(:hover, :focus, :active),
+body.darkmode .post-tags .classtest-link:is(:hover, :focus, :active),
+body.darkmode .post-end-meta-tags .classtest-link:is(:hover, :focus, :active),
+body.darkmode .archive-item-tags .classtest-link:is(:hover, :focus, :active) {
+  color: var(--click-focus-color) !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* For every dotted-underline clickable text: hide underline on hover/focus/active */
+.interactive-link:is(:hover, :focus, :active)::before,
+.tag-link:is(:hover, :focus, :active)::before,
+.classtest-link:is(:hover, :focus, :active)::before,
+.archive-switch-link:is(:hover, :focus, :active)::before,
+.post-toc-nav a:is(:hover, :focus, :active)::before,
+.pagination a:is(:hover, :focus, :active)::before,
+.markdown-content p a:is(:hover, :focus, :active)::before,
+.markdown-content li a:is(:hover, :focus, :active)::before,
+.markdown-content h2 a:not(.headerlink):is(:hover, :focus, :active)::before,
+.markdown-content h3 a:not(.headerlink):is(:hover, :focus, :active)::before,
+.markdown-content table a:is(:hover, :focus, :active)::before {
+  opacity: 0 !important;
+  transform: scaleX(0);
+}
+
+/* Force tag focus/hover behavior to match Home exactly */
+.tag-link:is(:hover, :focus, :active) {
+  color: var(--click-focus-color) !important;
+  background: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14) !important;
+}
+
+body.darkmode .tag-link:is(:hover, :focus, :active) {
+  color: var(--click-focus-color) !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Ensure in-article link focus exactly matches Home */
+.markdown-content p a:focus,
+.markdown-content p a:active,
+.markdown-content li a:focus,
+.markdown-content li a:active,
+.markdown-content h2 a:not(.headerlink):focus,
+.markdown-content h2 a:not(.headerlink):active,
+.markdown-content h3 a:not(.headerlink):focus,
+.markdown-content h3 a:not(.headerlink):active,
+.markdown-content table a:focus,
+.markdown-content table a:active {
+  color: var(--click-focus-color) !important;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+body.darkmode .markdown-content p a:focus,
+body.darkmode .markdown-content p a:active,
+body.darkmode .markdown-content li a:focus,
+body.darkmode .markdown-content li a:active,
+body.darkmode .markdown-content h2 a:not(.headerlink):focus,
+body.darkmode .markdown-content h2 a:not(.headerlink):active,
+body.darkmode .markdown-content h3 a:not(.headerlink):focus,
+body.darkmode .markdown-content h3 a:not(.headerlink):active,
+body.darkmode .markdown-content table a:focus,
+body.darkmode .markdown-content table a:active {
+  color: var(--click-focus-color) !important;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* Global consistent interaction logic for all dotted-link scenes */
+.interactive-link::before,
+.tag-link::before,
+.archive-switch-link::before,
+.post-toc-nav a::before,
+.pagination a::before,
+.markdown-content p a::before,
+.markdown-content li a::before,
+.markdown-content h2 a:not(.headerlink)::before,
+.markdown-content h3 a:not(.headerlink)::before,
+.markdown-content table a::before {
+  left: 0.3em;
+  right: 0.3em;
+  bottom: 0.12em;
+  opacity: 0.5;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  transform-origin: right;
+  transform: scaleX(1);
+}
+
+.interactive-link:is(:hover, :focus, :active),
+.tag-link:is(:hover, :focus, :active),
+.classtest-link:is(:hover, :focus, :active),
+.archive-switch-link:is(:hover, :focus, :active),
+.post-toc-nav a:is(:hover, :focus, :active),
+.pagination a:is(:hover, :focus, :active),
+.markdown-content p a:is(:hover, :focus, :active),
+.markdown-content li a:is(:hover, :focus, :active),
+.markdown-content h2 a:not(.headerlink):is(:hover, :focus, :active),
+.markdown-content h3 a:not(.headerlink):is(:hover, :focus, :active),
+.markdown-content table a:is(:hover, :focus, :active) {
+  color: var(--click-focus-color) !important;
+}
+
+.interactive-link:is(:hover, :focus, :active)::before,
+.tag-link:is(:hover, :focus, :active)::before,
+.archive-switch-link:is(:hover, :focus, :active)::before,
+.post-toc-nav a:is(:hover, :focus, :active)::before,
+.pagination a:is(:hover, :focus, :active)::before,
+.markdown-content p a:is(:hover, :focus, :active)::before,
+.markdown-content li a:is(:hover, :focus, :active)::before,
+.markdown-content h2 a:not(.headerlink):is(:hover, :focus, :active)::before,
+.markdown-content h3 a:not(.headerlink):is(:hover, :focus, :active)::before,
+.markdown-content table a:is(:hover, :focus, :active)::before {
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  <%
+  if (!config.author) {
+    config.author = '';
+  }
+
+  let title = config.title;
+  if (is_archive()) {
+    title = 'All Posts - ' + config.author;
+  } else if (is_post()) {
+    title = page.title;
+  } else if (is_page()) {
+    title = page.title + ' - ' + config.author;
+  } else if (is_tag()) {
+    title = 'Posts Related to ' + page.tag;
+  }
+
+  const cleanUrl = url.replace(/index\.html$/, '');
+  let pageDescription = config.description;
+
+  if (is_page() && page.description) {
+    pageDescription = page.description;
+  } else if (page.content) {
+    pageDescription = strip_html(page.content).replace(/\n/g, ' ').replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150);
+  }
+
+  let socialImage = '';
+  if ((is_post() || is_page()) && page.thumbnail) {
+    socialImage = config.url + page.thumbnail;
+  } else if (theme.thumbnail) {
+    socialImage = config.url + theme.thumbnail;
+  }
+  %>
+  <title><%= title %></title>
+  <% if (config.sitemap) { %>
+  <link rel="sitemap" href="<%-config.url + config.sitemap.path %>" />
+  <% } %>
+  <link rel="canonical" href="<%= cleanUrl %>">
+  <meta name="description" content="<%= pageDescription %>">
+  <meta name="title" content="<%= title %>">
+  <% if (is_post() && page.tags && page.tags.length) { %>
+    <% const pageTagNames = []; page.tags.each(function(tag){ pageTagNames.push(tag.name); }); %>
+  <meta name="tag" content="<%- pageTagNames.join(', ') %>">
+  <% } %>
+  <% if (config.keywords) { %>
+  <meta name="keywords" content="<%= config.keywords %>">
+  <% } %>
+  <meta name="author" content="<%- config.author %>">
+  <% if (socialImage) { %>
+  <meta property="og:image" content="<%- socialImage %>">
+  <% } %>
+  <meta property="og:site_name" content="<%= config.title %>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="<%= title %>" />
+  <meta property="og:description" content="<%= pageDescription %>">
+  <meta property="og:url" content="<%= cleanUrl %>" />
+  <% if (is_post() && page.tags && page.tags.length) { %>
+    <% page.tags.each(function(tag){ %>
+      <meta property="article:tag" content="<%- tag.name %>" />
+    <% }) %>
+  <% } %>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= title %>">
+  <meta name="twitter:description" content="<%= pageDescription %>">
+  <% if (socialImage) { %>
+  <meta name="twitter:image" content="<%- socialImage %>">
+  <% } %>
+  <meta name="twitter:url" content="<%= cleanUrl %>" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/ToneOZ-Tsuipita-TC.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <%- css('css/normalize.css') %>
+  <%- css('css/skeleton.css') %>
+  <%- css('css/custom.css') %>
+  <link rel="stylesheet" href="/node_modules/@chinese-fonts/lxgwwenkaibright/dist/LXGWBright-Medium/result.css">
+  <%- css('css/prism-dark.css') %>
+  <%- css('css/prism-line-numbers.css') %>
+  <!-- User css -->
+  <% if (theme.usercss) { %>
+  <%- css(theme.usercss) %>
+  <% } %>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="<%- theme.favicon %>">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <%- partial('partial/tcolor') %>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script src="/js/tex-svg.js" defer></script>
+
+  <% if (theme.picjs) { %>
+  <script src="<%- theme.picjs %>" defer></script>
+  <% } %>
+  <script src="/js/post-toc.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/archive-search.js" defer></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <%- partial('partial/header') %>
+        <div class="trans">
+          <%- body %>
+        </div>
+        <%- partial('partial/footer') %>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="<%- theme.nanobar %>" defer></script>
+  <script src="/js/site-init.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<div class="daily-page">
+  <h2>Daily</h2>
+  <p class="lit">One card at a time.</p>
+
+  <%
+    const entries = site.pages.filter(function(item) {
+      return item.source && item.source.indexOf('daily/') === 0 && item.source !== 'daily/index.md';
+    }).sort('date', 'desc');
+  %>
+
+  <% if (!entries.length) { %>
+    <article class="daily-card">
+      <p>No daily entries yet.</p>
+    </article>
+  <% } %>
+
+  <% entries.forEach(function(item){ %>
+    <article class="daily-card" data-tags="<%- item.tag || '' %>">
+      <header class="daily-card-head">
+        <% if (item.tag) { %>
+          <span class="daily-tag"><%- item.tag %></span>
+        <% } %>
+        <% if (item.date) { %>
+          <time class="daily-time"><%- full_date(item.date, 'YYYY-MM-DD') %></time>
+        <% } %>
+      </header>
+      <div class="markdown-content post-content daily-content">
+        <%- item.content %>
+      </div>
+    </article>
+  <% }) %>
+</div>

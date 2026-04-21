@@ -1,0 +1,51 @@
+<%
+  const plainTextWordCount = page.content.replace(/<[^>]*>/g, '').replace(/\s+/g, '').length;
+  const words = page.wordcount || plainTextWordCount;
+  const readingMinutes = Math.max(1, Math.ceil(words / 300));
+%>
+
+<article class="post-shell">
+  <div class="post-main">
+    <header class="post-header">
+      <h1 class="post-title"><%- page.title %></h1>
+      <div class="post-meta">
+        <% if (page.tags && page.tags.length) { %>
+          <span class="post-tags"><%- list_tags(page.tags, {class: 'classtest', show_count: false, style: false}) %></span>
+          <span class="post-meta-sep">/</span>
+        <% } %>
+        <time datetime="<%= full_date(page.date, 'YYYY-MM-DD') %>"><%- full_date(page.date, 'll') %></time>
+      </div>
+    </header>
+
+    <div class="markdown-content post-content" id="post-content">
+      <%- page.content %>
+    </div>
+
+    <footer class="post-end-meta">
+      <div class="post-end-meta-item">
+        <span class="post-end-meta-label">Published</span>
+        <span class="post-end-meta-value"><%- full_date(page.date, 'll') %></span>
+      </div>
+      <div class="post-end-meta-item">
+        <span class="post-end-meta-label">Words</span>
+        <span class="post-end-meta-value"><%= words %></span>
+      </div>
+      <div class="post-end-meta-item">
+        <span class="post-end-meta-label">Reading Time</span>
+        <span class="post-end-meta-value"><%= readingMinutes %> min</span>
+      </div>
+      <% if (page.tags && page.tags.length) { %>
+        <div class="post-end-meta-item post-end-meta-tags">
+          <span class="post-end-meta-label">Tags</span>
+          <span class="post-end-meta-value"><%- list_tags(page.tags, {class: 'classtest', show_count: false, style: false}) %></span>
+        </div>
+      <% } %>
+    </footer>
+  </div>
+
+  <aside class="post-toc" id="post-toc" aria-label="Table of contents">
+    <div class="post-toc-inner">
+      <nav class="post-toc-nav" id="post-toc-nav"></nav>
+    </div>
+  </aside>
+</article>

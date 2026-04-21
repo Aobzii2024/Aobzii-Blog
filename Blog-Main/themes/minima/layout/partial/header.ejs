@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="two columns mode-column">
+    <h1 class="mt-2 mode">
+      <div id="darkBtn" class="interactive-toggle"><%= theme.switch_dark %></div>
+      <div id="lightBtn" class="hidden interactive-toggle"><%= theme.switch_light %></div>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      <%= theme.title %>
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left nav-links">
+        <a href="<%= config.root %>" class="interactive-link">Home</a>
+        <% for (name in theme.menu) { %>
+          <% if (theme.menu[name]) { %>
+          <a href="<%- url_for(theme.menu[name]) %>" class="ml interactive-link"><%- name %></a>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+    <hr class="header-divider">
+  </div>
+</div>
