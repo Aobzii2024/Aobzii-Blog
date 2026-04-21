@@ -18,6 +18,7 @@ jobs:
           [ -n "${{ secrets.SERVER_USER }}" ] || (echo "SERVER_USER is missing"; exit 1)
           [ -n "${{ secrets.SERVER_PORT }}" ] || (echo "SERVER_PORT is missing"; exit 1)
           [ -n "${{ secrets.SERVER_SSH_KEY }}" ] || (echo "SERVER_SSH_KEY is missing"; exit 1)
+          [ -n "${{ secrets.SERVER_FINGERPRINT }}" ] || (echo "SERVER_FINGERPRINT is missing"; exit 1)
 
       - name: Remote deploy via SSH
         uses: appleboy/ssh-action@v1.2.0
@@ -26,7 +27,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           port: ${{ secrets.SERVER_PORT }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          known_hosts: ${{ secrets.SERVER_KNOWN_HOSTS }}
+          fingerprint: ${{ secrets.SERVER_FINGERPRINT }}
           script: |
             set -e
             /opt/Aobzii-Blog/deploy.sh
