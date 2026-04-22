@@ -58,6 +58,39 @@ html {
   overflow: auto;
 }
 
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.24s ease, visibility 0.24s ease;
+}
+
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.page-loader-spinner {
+  width: 42px;
+  height: 42px;
+  border: 1.6px solid rgba(0, 0, 0, 0.18);
+  border-top-color: #111;
+  border-radius: 50%;
+  animation: pageLoaderSpin 0.72s linear infinite;
+}
+
+@keyframes pageLoaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 body,
 button,
 input,
