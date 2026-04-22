@@ -126,6 +126,8 @@
       }
     };
   </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <% if (isContentPage) { %>
   <script src="/js/tex-svg.js" defer></script>
   <% } %>
@@ -138,6 +140,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
   <script src="/js/mermaid-init.js" defer></script>
   <% } %>
+  <script src="https://instant.page/5.2.0" type="module" defer></script>
   <script src="/js/post-toc.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/archive-search.js" defer></script>
@@ -145,7 +148,7 @@
 </head>
 
 <body>
-  <div class="page-loader" id="page-loader" aria-hidden="true">
+  <div class="page-loader is-hidden" id="page-loader" aria-hidden="true">
     <span class="page-loader-spinner"></span>
   </div>
   <div class="container">
