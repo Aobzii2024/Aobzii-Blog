@@ -9,6 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
     nanobar.go(100);
   }
 
+  const normalizeDisplayMathBlocks = () => {
+    const paragraphs = document.querySelectorAll('.markdown-content p');
+
+    paragraphs.forEach((paragraph) => {
+      const raw = (paragraph.textContent || '').trim();
+      const isDisplayMath = raw.startsWith('$$') && raw.endsWith('$$') && raw.length > 4;
+
+      if (!isDisplayMath) {
+        return;
+      }
+
+      const block = document.createElement('div');
+      block.textContent = raw;
+      paragraph.replaceWith(block);
+    });
+  };
+
+  normalizeDisplayMathBlocks();
+
   const typesetMath = () => {
     if (window.MathJax && window.MathJax.typesetPromise) {
       window.MathJax.typesetPromise();
