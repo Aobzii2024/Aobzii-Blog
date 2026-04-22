@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loader.classList.add('is-hidden');
+    document.body.classList.add('page-ready');
     window.setTimeout(() => {
       loader.remove();
     }, FAST_HIDE_DELAY);
