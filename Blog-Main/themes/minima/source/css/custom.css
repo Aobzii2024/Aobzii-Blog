@@ -34,16 +34,18 @@
   font-family: 'ToneOZ Tsuipita TC';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/ToneOZ-Tsuipita-TC.ttf') format('truetype');
-  font-display: block;
+  src: url('../fonts/ToneOZ-Tsuipita-TC-subset.woff2') format('woff2'),
+       url('../fonts/ToneOZ-Tsuipita-TC.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Qiushui Shotai Bright';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/QiushuiShotaiBright.ttf') format('truetype');
-  font-display: block;
+  src: url('../fonts/QiushuiShotaiBright-subset.woff2') format('woff2'),
+       url('../fonts/QiushuiShotaiBright.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
@@ -51,7 +53,7 @@
   font-style: normal;
   font-weight: 400;
   src: url('../fonts/HONORSansTC-Regular.ttf') format('truetype');
-  font-display: block;
+  font-display: swap;
 }
 
 html {
