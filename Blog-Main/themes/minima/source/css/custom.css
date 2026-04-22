@@ -1619,13 +1619,13 @@ body.darkmode .pagination a:active {
   }
 
   .archive-item-tags {
-    margin-left: 0;
-    text-align: left;
+    margin-left: auto;
+    text-align: right;
     white-space: normal;
   }
 
   .archive-item-tags .tag-link {
-    margin: 0 0.45rem 0.35rem 0;
+    margin: 0 0 0.35rem 0.45rem;
   }
 }
 
