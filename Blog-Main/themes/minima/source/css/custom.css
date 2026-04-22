@@ -1462,24 +1462,21 @@ body.darkmode .daily-card {
 }
 
 #swup {
-  transform: translateY(0);
   opacity: 1;
-  transition: opacity 150ms ease, transform 150ms ease;
-  will-change: opacity, transform;
+  transition: opacity 150ms ease;
+  will-change: opacity;
 }
 
 html.is-changing #swup {
-  transition: opacity 110ms ease, transform 110ms ease;
+  transition: opacity 110ms ease;
 }
 
 html.is-animating #swup {
   opacity: 0;
-  transform: translateY(7px);
 }
 
 html.is-rendering #swup {
   opacity: 0;
-  transform: translateY(-7px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1488,7 +1485,6 @@ html.is-rendering #swup {
   html.is-animating #swup,
   html.is-rendering #swup {
     transition: none !important;
-    transform: none !important;
     opacity: 1 !important;
   }
 }
