@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.removeItem('preferredTheme');
     }
 
+    document.documentElement.classList.toggle('darkmode', isDark);
     document.body.classList.toggle('darkmode', isDark);
   };
 

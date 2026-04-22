@@ -1211,6 +1211,20 @@ body.darkmode {
   color: rgb(230, 230, 230);
 }
 
+html.darkmode body {
+  background: rgb(34, 34, 38);
+  color: rgb(230, 230, 230);
+}
+
+html.darkmode .page-loader {
+  background: rgb(34, 34, 38);
+}
+
+html.darkmode .page-loader-spinner {
+  border-color: rgba(255, 255, 255, 0.24);
+  border-top-color: #e6e6e6;
+}
+
 .trans {
   border: 0;
   border-radius: 0;
