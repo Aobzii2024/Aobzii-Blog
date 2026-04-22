@@ -1236,12 +1236,12 @@ body.darkmode .archive-item-tags .tag-link {
 }
 
 .post-search-input {
-  width: auto;
+  width: 100%;
   min-width: 28ch;
   max-width: 34ch;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 9999px;
-  padding: 0.8rem 1rem;
+  padding: 0.95rem 1.35rem;
   background: rgba(0, 0, 0, 0.05);
   color: inherit;
 }
