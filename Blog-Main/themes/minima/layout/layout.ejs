@@ -41,6 +41,8 @@
   } else if (theme.thumbnail) {
     socialImage = config.url + theme.thumbnail;
   }
+
+  const isContentPage = is_post() || is_page();
   %>
   <title><%= title %></title>
   <% if (config.sitemap) { %>
@@ -85,7 +87,6 @@
 
   <!-- Preload fonts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="preload" href="/fonts/ToneOZ-Tsuipita-TC.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -94,7 +95,6 @@
   <%- css('css/normalize.css') %>
   <%- css('css/skeleton.css') %>
   <%- css('css/custom.css') %>
-  <link rel="stylesheet" href="/node_modules/@chinese-fonts/lxgwwenkaibright/dist/LXGWBright-Medium/result.css">
   <%- css('css/prism-dark.css') %>
   <%- css('css/prism-line-numbers.css') %>
   <!-- User css -->
@@ -126,13 +126,17 @@
       }
     };
   </script>
+  <% if (isContentPage) { %>
   <script src="/js/tex-svg.js" defer></script>
+  <% } %>
 
   <% if (theme.picjs) { %>
   <script src="<%- theme.picjs %>" defer></script>
   <% } %>
+  <% if (isContentPage) { %>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
   <script src="/js/mermaid-init.js" defer></script>
+  <% } %>
   <script src="/js/post-toc.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/archive-search.js" defer></script>
