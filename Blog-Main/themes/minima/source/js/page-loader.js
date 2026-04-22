@@ -4,19 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const FAST_HIDE_DELAY = 90;
-  const CLICK_SHOW_DELAY = 140;
-  const FORCE_HIDE_TIMEOUT = 1800;
+  const FAST_HIDE_DELAY = 70;
+  const CLICK_SHOW_DELAY = 220;
+  const FORCE_HIDE_TIMEOUT = 1500;
+  let isHidden = false;
   let pendingShowTimer = null;
 
   const hideLoader = () => {
+    if (isHidden) {
+      return;
+    }
+
+    isHidden = true;
+
     if (pendingShowTimer) {
       window.clearTimeout(pendingShowTimer);
       pendingShowTimer = null;
     }
 
     loader.classList.add('is-hidden');
-    document.body.classList.add('page-ready');
     window.setTimeout(() => {
       loader.remove();
     }, FAST_HIDE_DELAY);
@@ -55,16 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (pendingShowTimer) {
+      window.clearTimeout(pendingShowTimer);
+    }
+
     pendingShowTimer = window.setTimeout(showLoader, CLICK_SHOW_DELAY);
   });
 
   window.addEventListener('pageshow', hideLoader, { once: true });
 
-  if (document.readyState === 'complete') {
-    hideLoader();
-  } else {
-    window.addEventListener('load', hideLoader, { once: true });
-  }
+  hideLoader();
 
   window.setTimeout(hideLoader, FORCE_HIDE_TIMEOUT);
 });
