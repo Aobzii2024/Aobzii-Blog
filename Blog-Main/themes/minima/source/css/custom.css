@@ -513,6 +513,12 @@ body.darkmode .trans {
   font-size: 1.68rem;
 }
 
+.markdown-content li input[type="checkbox"] {
+  margin-right: 0.7rem;
+  accent-color: #8fcf9d;
+  transform: translateY(1px);
+}
+
 .markdown-content li::marker {
   transition: color 0.2s ease;
 }
