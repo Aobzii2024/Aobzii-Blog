@@ -1,6 +1,5 @@
 # Aobzii-Blog
-A blog powered by Astro/Momo.
+A blog powered by Aobzii
 
 > Include Images
 
-'It's Author is MoTues.'
