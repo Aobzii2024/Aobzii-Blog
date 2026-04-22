@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const initMermaidDiagrams = () => {
   if (!window.mermaid) {
     return;
   }
@@ -54,4 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.mermaid.run({ querySelector: '.mermaid' }).catch(() => {});
-});
+};
+
+document.addEventListener('DOMContentLoaded', initMermaidDiagrams);
+document.addEventListener('op:page-ready', initMermaidDiagrams);

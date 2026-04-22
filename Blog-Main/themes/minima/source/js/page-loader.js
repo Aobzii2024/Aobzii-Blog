@@ -1,8 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
+const initPageLoader = () => {
   const loader = document.getElementById('page-loader');
   if (!loader) {
     return;
   }
+
+  if (loader.dataset.bound === '1') {
+    return;
+  }
+
+  loader.dataset.bound = '1';
 
   const FAST_HIDE_DELAY = 70;
   const CLICK_SHOW_DELAY = 220;
@@ -29,6 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const showLoader = () => {
+    if (pendingShowTimer) {
+      window.clearTimeout(pendingShowTimer);
+      pendingShowTimer = null;
+    }
+
     loader.classList.remove('is-hidden');
   };
 
@@ -70,7 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('pageshow', hideLoader, { once: true });
 
+  document.addEventListener('swup:visit:start', () => {
+    isHidden = false;
+    showLoader();
+  });
+
+  document.addEventListener('swup:page:view', hideLoader);
+
   hideLoader();
 
   window.setTimeout(hideLoader, FORCE_HIDE_TIMEOUT);
-});
+};
+
+document.addEventListener('DOMContentLoaded', initPageLoader);

@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.Nanobar) {
+const runSiteEnhancements = () => {
+  if (window.Nanobar && !window.__opNanobarDone) {
     const nanobar = new Nanobar({
       classname: 'nanobar',
       id: 'myNanobar'
@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nanobar.go(30);
     nanobar.go(76);
     nanobar.go(100);
+    window.__opNanobarDone = true;
   }
 
   const normalizeDisplayMathBlocks = () => {
@@ -39,4 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     window.addEventListener('load', typesetMath);
   }
-});
+};
+
+document.addEventListener('DOMContentLoaded', runSiteEnhancements);
+document.addEventListener('op:page-ready', runSiteEnhancements);

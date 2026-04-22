@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const initArchiveSearch = () => {
   const input = document.getElementById('archive-search-input');
 
   if (!input) {
@@ -29,4 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   syncGroups();
-});
+};
+
+document.addEventListener('DOMContentLoaded', initArchiveSearch);
+document.addEventListener('op:page-ready', initArchiveSearch);

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const initPostToc = () => {
   if (!window.matchMedia('(min-width: 1200px)').matches) {
     return;
   }
@@ -33,4 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   nav.appendChild(fragment);
   toc.style.display = 'block';
   toc.classList.add('is-ready');
-});
+};
+
+document.addEventListener('DOMContentLoaded', initPostToc);
+document.addEventListener('op:page-ready', initPostToc);
