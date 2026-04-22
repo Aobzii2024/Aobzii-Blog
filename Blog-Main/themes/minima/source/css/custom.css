@@ -1461,6 +1461,38 @@ body.darkmode .daily-card {
   animation: transitionFade 0.35s ease-out;
 }
 
+#swup {
+  transform: translateY(0);
+  opacity: 1;
+  transition: opacity 150ms ease, transform 150ms ease;
+  will-change: opacity, transform;
+}
+
+html.is-changing #swup {
+  transition: opacity 110ms ease, transform 110ms ease;
+}
+
+html.is-animating #swup {
+  opacity: 0;
+  transform: translateY(7px);
+}
+
+html.is-rendering #swup {
+  opacity: 0;
+  transform: translateY(-7px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #swup,
+  html.is-changing #swup,
+  html.is-animating #swup,
+  html.is-rendering #swup {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
 @keyframes transitionFade {
   from {
     opacity: 0;
