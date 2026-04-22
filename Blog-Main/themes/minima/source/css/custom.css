@@ -519,6 +519,18 @@ body.darkmode .trans {
   transform: translateY(1px);
 }
 
+.markdown-content li:has(> input[type="checkbox"]) {
+  list-style: none;
+}
+
+.markdown-content li:has(> input[type="checkbox"]:checked) {
+  color: rgba(91, 154, 104, 0.96);
+}
+
+body.darkmode .markdown-content li:has(> input[type="checkbox"]:checked) {
+  color: #8fcf9d;
+}
+
 .markdown-content li::marker {
   transition: color 0.2s ease;
 }
