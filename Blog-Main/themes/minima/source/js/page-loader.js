@@ -47,8 +47,7 @@ const initPageLoader = () => {
     'a[href]:not([href^="#"]):not([target="_blank"])',
     'a.interactive-link',
     '.archive-switch-link',
-    '.pagination a',
-    '.post-toc-nav a'
+    '.pagination a'
   ].join(',');
 
   document.addEventListener('click', (event) => {

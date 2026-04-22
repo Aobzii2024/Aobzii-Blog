@@ -472,7 +472,6 @@ body.darkmode .trans {
 .post-title,
 .post-meta,
 .post-end-meta,
-.post-toc-nav a,
 #madewith,
 .posisi,
 .lit,
@@ -864,36 +863,6 @@ body.darkmode .markdown-content tbody tr:hover {
   padding: 0.5rem 1rem;
 }
 
-.post-toc {
-  display: none;
-}
-
-.post-toc.is-ready {
-  display: block;
-}
-
-.post-toc-inner {
-  padding-left: 0.4rem;
-}
-
-.post-toc-nav a {
-  display: block;
-  margin: 0.2rem 0;
-  padding: 0.28rem 0;
-  color: rgba(0, 0, 0, 0.5);
-  background-image: none !important;
-  text-decoration: none !important;
-  font-size: 1.35rem;
-  font-weight: 400;
-  line-height: 1.45;
-  border: 0 !important;
-  box-shadow: none !important;
-  transition: color 0.2s ease, font-weight 0.2s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .post-end-meta {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -926,22 +895,6 @@ body.darkmode .markdown-content tbody tr:hover {
 
 .post-end-meta-tags .tag-link {
   margin-right: 0.8rem;
-}
-
-.post-toc-nav a[data-level="3"] {
-  padding-left: 1.1rem;
-}
-
-.post-toc-nav a[data-level="4"] {
-  padding-left: 2rem;
-}
-
-.post-toc-nav a[data-level="5"] {
-  padding-left: 2.9rem;
-}
-
-.post-toc-nav a[data-level="6"] {
-  padding-left: 3.8rem;
 }
 
 code:not(pre code) {
@@ -1085,14 +1038,6 @@ body.darkmode .markdown-content td {
 
 body.darkmode .markdown-content th {
   background-color: rgba(255, 255, 255, 0.05);
-}
-
-body.darkmode .post-toc-inner {
-  border-left-color: transparent;
-}
-
-body.darkmode .post-toc-nav a {
-  color: rgba(255, 255, 255, 0.56);
 }
 
 body.darkmode .post-end-meta {
@@ -1295,7 +1240,7 @@ body.darkmode .archive-item-tags .tag-link {
   min-width: 28ch;
   max-width: 34ch;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 999px;
+  border-radius: 9999px;
   padding: 0.8rem 1rem;
   background: rgba(0, 0, 0, 0.05);
   color: inherit;
@@ -1529,39 +1474,13 @@ html.is-rendering #swup {
 }
 
 @media (min-width: 1200px) {
-  .post-shell {
-    padding-right: 260px;
-  }
-
   .post-main {
     max-width: 760px;
     margin: 0 auto;
   }
-
-  .post-toc {
-    position: fixed;
-    top: 20.4rem;
-    transform: translateX(-30px);
-    right: max(2rem, calc(50vw - 515px));
-    width: 200px;
-    max-height: calc(100vh - 14rem);
-    overflow: auto;
-    z-index: 2;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1399px) {
-  .post-toc {
-    right: 2rem;
-    width: 180px;
-  }
 }
 
 @media (max-width: 1199px) {
-  .post-toc {
-    display: none !important;
-  }
-
   .post-end-meta {
     grid-template-columns: 1fr;
   }
@@ -1586,7 +1505,6 @@ html.is-rendering #swup {
 .tag-link,
 .classtest-link,
 .archive-switch-link,
-.post-toc-nav a,
 .pagination a {
   color: rgba(0, 0, 0, 0.82);
   position: relative;
@@ -1604,7 +1522,6 @@ html.is-rendering #swup {
 .tag-link::before,
 .classtest-link::before,
 .archive-switch-link::before,
-.post-toc-nav a::before,
 .pagination a::before {
   content: "";
   position: absolute;
@@ -1625,9 +1542,6 @@ html.is-rendering #swup {
 .archive-switch-link:hover,
 .archive-switch-link:focus,
 .archive-switch-link:active,
-.post-toc-nav a:hover,
-.post-toc-nav a:focus,
-.post-toc-nav a:active,
 .pagination a:hover,
 .pagination a:focus,
 .pagination a:active {
@@ -1645,9 +1559,6 @@ html.is-rendering #swup {
 .archive-switch-link:hover::before,
 .archive-switch-link:focus::before,
 .archive-switch-link:active::before,
-.post-toc-nav a:hover::before,
-.post-toc-nav a:focus::before,
-.post-toc-nav a:active::before,
 .pagination a:hover::before,
 .pagination a:focus::before,
 .pagination a:active::before {
@@ -1658,7 +1569,6 @@ html.is-rendering #swup {
   .tag-link:hover,
   .classtest-link:hover,
   .archive-switch-link:hover,
-  .post-toc-nav a:hover,
   .pagination a:hover {
     -webkit-backdrop-filter: blur(10px) saturate(120%);
     backdrop-filter: blur(10px) saturate(120%);
@@ -1668,7 +1578,6 @@ html.is-rendering #swup {
 body.darkmode .tag-link,
 body.darkmode .classtest-link,
 body.darkmode .archive-switch-link,
-body.darkmode .post-toc-nav a,
 body.darkmode .pagination a {
   color: rgba(255, 255, 255, 0.82);
 }
@@ -1682,9 +1591,6 @@ body.darkmode .classtest-link:active,
 body.darkmode .archive-switch-link:hover,
 body.darkmode .archive-switch-link:focus,
 body.darkmode .archive-switch-link:active,
-body.darkmode .post-toc-nav a:hover,
-body.darkmode .post-toc-nav a:focus,
-body.darkmode .post-toc-nav a:active,
 body.darkmode .pagination a:hover,
 body.darkmode .pagination a:focus,
 body.darkmode .pagination a:active {
@@ -1726,7 +1632,6 @@ body.darkmode .pagination a:active {
 /* Keep dotted underline disabled only for non-requested areas */
 .tag-link::before,
 .classtest-link::before,
-.post-toc-nav a::before,
 .pagination a::before {
   display: none !important;
   content: none !important;
@@ -1784,9 +1689,6 @@ samp,
 .archive-switch-link:hover,
 .archive-switch-link:focus,
 .archive-switch-link:active,
-.post-toc-nav a:hover,
-.post-toc-nav a:focus,
-.post-toc-nav a:active,
 .pagination a:hover,
 .pagination a:focus,
 .pagination a:active,
@@ -1839,7 +1741,6 @@ body.darkmode .archive-item-tags .classtest-link:is(:hover, :focus, :active) {
 .tag-link:is(:hover, :focus, :active)::before,
 .classtest-link:is(:hover, :focus, :active)::before,
 .archive-switch-link:is(:hover, :focus, :active)::before,
-.post-toc-nav a:is(:hover, :focus, :active)::before,
 .pagination a:is(:hover, :focus, :active)::before,
 .markdown-content p a:is(:hover, :focus, :active)::before,
 .markdown-content li a:is(:hover, :focus, :active)::before,
@@ -1898,7 +1799,6 @@ body.darkmode .markdown-content table a:active {
 .interactive-link::before,
 .tag-link::before,
 .archive-switch-link::before,
-.post-toc-nav a::before,
 .pagination a::before,
 .markdown-content p a::before,
 .markdown-content li a::before,
@@ -1918,7 +1818,6 @@ body.darkmode .markdown-content table a:active {
 .tag-link:is(:hover, :focus, :active),
 .classtest-link:is(:hover, :focus, :active),
 .archive-switch-link:is(:hover, :focus, :active),
-.post-toc-nav a:is(:hover, :focus, :active),
 .pagination a:is(:hover, :focus, :active),
 .markdown-content p a:is(:hover, :focus, :active),
 .markdown-content li a:is(:hover, :focus, :active),
@@ -1931,7 +1830,6 @@ body.darkmode .markdown-content table a:active {
 .interactive-link:is(:hover, :focus, :active)::before,
 .tag-link:is(:hover, :focus, :active)::before,
 .archive-switch-link:is(:hover, :focus, :active)::before,
-.post-toc-nav a:is(:hover, :focus, :active)::before,
 .pagination a:is(:hover, :focus, :active)::before,
 .markdown-content p a:is(:hover, :focus, :active)::before,
 .markdown-content li a:is(:hover, :focus, :active)::before,
