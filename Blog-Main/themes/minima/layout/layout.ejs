@@ -137,18 +137,14 @@
   </script>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-  <% if (isContentPage) { %>
   <script src="/js/tex-svg.js" defer></script>
-  <% } %>
 
   <% if (theme.picjs) { %>
   <script src="<%- theme.picjs %>" defer></script>
   <% } %>
   <script src="/js/page-loader.js" defer></script>
-  <% if (isContentPage) { %>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
   <script src="/js/mermaid-init.js" defer></script>
-  <% } %>
   <script src="https://unpkg.com/swup@4"></script>
   <script src="/js/swup-init.js" defer></script>
   <script src="https://instant.page/5.2.0" type="module" defer></script>

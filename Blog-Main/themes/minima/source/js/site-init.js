@@ -29,6 +29,17 @@ const runSiteEnhancements = () => {
 
   normalizeDisplayMathBlocks();
 
+  const hasMath = Array.from(document.querySelectorAll('.markdown-content p, .markdown-content div')).some(
+    (node) => {
+      const text = (node.textContent || '').trim();
+      return text.includes('$$') || /\$[^\n]+\$/.test(text);
+    }
+  );
+
+  if (!hasMath) {
+    return;
+  }
+
   const typesetMath = () => {
     if (window.MathJax && window.MathJax.typesetPromise) {
       window.MathJax.typesetPromise();
