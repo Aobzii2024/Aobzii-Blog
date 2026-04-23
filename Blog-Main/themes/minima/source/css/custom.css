@@ -1210,10 +1210,7 @@ body.darkmode .archive-item-tags .tag-link {
 }
 
 .home-post-row {
-  display: grid;
-  grid-template-columns: 10.5rem minmax(0, 1fr);
-  align-items: start;
-  column-gap: 1.2rem;
+  display: block;
 }
 
 .home-post-date,
@@ -1482,7 +1479,9 @@ html.is-rendering #swup {
   }
 
   .home-post-row {
+    display: grid;
     grid-template-columns: 10rem minmax(0, 1fr);
+    align-items: start;
     column-gap: 0.9rem;
   }
 
