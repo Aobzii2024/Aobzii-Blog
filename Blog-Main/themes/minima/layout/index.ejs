@@ -11,12 +11,11 @@
 <h3>Recent Posts</h3>
 
 <% site.posts.sort('date', 'desc').limit(theme.max_post).forEach(function(post){ %>
-<div class="row">
-
-  <div class="three columns left lit">
+<div class="row home-post-row">
+  <div class="three columns left lit home-post-date">
     <p class="bottom"><%- full_date(post.date, 'll') %></p>
   </div>
-  <div class="nine columns left mb-3">
+  <div class="nine columns left mb-3 home-post-title">
     <a href="<%- url_for(post.path) %>" class="interactive-link">
       <% if (post.title === '') { %>
         no title

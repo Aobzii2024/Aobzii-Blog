@@ -1209,6 +1209,18 @@ body.darkmode .archive-item-tags .tag-link {
   margin: 0 0 1.2rem;
 }
 
+.home-post-row {
+  display: grid;
+  grid-template-columns: 10.5rem minmax(0, 1fr);
+  align-items: start;
+  column-gap: 1.2rem;
+}
+
+.home-post-date,
+.home-post-title {
+  width: auto;
+}
+
 .post-search-input {
   width: 100%;
   min-width: 28ch;
@@ -1467,6 +1479,11 @@ html.is-rendering #swup {
 
   .trans {
     border-radius: 0;
+  }
+
+  .home-post-row {
+    grid-template-columns: 10rem minmax(0, 1fr);
+    column-gap: 0.9rem;
   }
 
   .archive-item {
