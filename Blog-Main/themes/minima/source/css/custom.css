@@ -1,15 +1,15 @@
 @font-face {
-  font-family: 'Smiley Sans';
+  font-family: 'LXGW WenKai Lite';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/SmileySans-Oblique.woff2') format('woff2');
+  src: url('../fonts/LXGWWenKaiLite-Medium.ttf') format('truetype');
   font-display: swap;
 }
 
 :root {
-  --font-ui: 'Smiley Sans', sans-serif;
-  --font-body: 'Smiley Sans', sans-serif;
-  --font-code: Consolas, Monaco, 'Courier New', monospace;
+  --font-ui: 'LXGW WenKai Lite', sans-serif;
+  --font-body: 'LXGW WenKai Lite', sans-serif;
+  --font-code: Consolas, Monaco, 'Courier New', 'LXGW WenKai Lite', monospace;
 }
 
 html {
