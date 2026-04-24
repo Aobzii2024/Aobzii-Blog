@@ -1,61 +1,53 @@
-/* dm-serif-display-regular - latin */
 @font-face {
-  font-family: 'DM Serif Display';
+  font-family: 'LXGW WenKai Lite';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/dm-serif-display-v4-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('DM Serif Display Regular'), local('DMSerifDisplay-Regular'),
-       url('../fonts/dm-serif-display-v4-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/dm-serif-display-v4-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/dm-serif-display-v4-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/dm-serif-display-v4-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/dm-serif-display-v4-latin-regular.svg#DMSerifDisplay') format('svg'); /* Legacy iOS */
-
-  font-display: swap; /* Add font-display */
-}
-
-/* inter-regular - latin */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/inter-v2-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('../fonts/inter-v2-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/inter-v2-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/inter-v2-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/inter-v2-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/inter-v2-latin-regular.svg#Inter') format('svg'); /* Legacy iOS */
-
-  font-display: swap; /* Add font-display */
-}
-
-@font-face {
-  font-family: 'ToneOZ Tsuipita TC';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/ToneOZ-Tsuipita-TC.ttf') format('truetype');
+  src: url('../fonts/LXGWWenKaiLite-Medium.ttf') format('truetype');
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Qiushui Shotai Bright';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/QiushuiShotaiBright.ttf') format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'HONOR Sans TC';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/HONORSansTC-Regular.ttf') format('truetype');
-  font-display: swap;
+:root {
+  --font-ui: 'LXGW WenKai Lite', sans-serif;
+  --font-body: 'LXGW WenKai Lite', sans-serif;
+  --font-code: Consolas, Monaco, 'Courier New', 'LXGW WenKai Lite', monospace;
 }
 
 html {
   overflow: auto;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+  transition: opacity 0.24s ease, visibility 0.24s ease;
+}
+
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.page-loader-spinner {
+  width: 42px;
+  height: 42px;
+  border: 1.6px solid rgba(0, 0, 0, 0.18);
+  border-top-color: #111;
+  border-radius: 50%;
+  animation: pageLoaderSpin 0.72s linear infinite;
+}
+
+@keyframes pageLoaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 body,
@@ -63,7 +55,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "ToneOZ Tsuipita TC";
+  font-family: var(--font-ui);
 }
 
 img {
@@ -241,23 +233,9 @@ img {
 }
 
 .interactive-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   cursor: pointer;
   user-select: none;
-}
-
-.theme-toggle-button {
-  height: auto;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
 }
 
 body.darkmode .trans {
@@ -367,7 +345,7 @@ body.darkmode .trans {
 .post-content {
   color: inherit;
   line-height: 1.8;
-  font-family: "Qiushui Shotai Bright" !important;
+  font-family: var(--font-body) !important;
   font-size: 1.25rem;
 }
 
@@ -381,13 +359,13 @@ body.darkmode .trans {
 .markdown-content h4,
 .markdown-content h5,
 .markdown-content h6 {
-  font-family: "Qiushui Shotai Bright" !important;
+  font-family: var(--font-body) !important;
   line-height: 1.3;
   letter-spacing: -0.02em;
 }
 
 .post-content *:not(pre):not(code):not(kbd):not(samp) {
-  font-family: "Qiushui Shotai Bright" !important;
+  font-family: var(--font-body) !important;
 }
 
 .post-content .markdown-content p,
@@ -450,7 +428,6 @@ body.darkmode .trans {
 .post-title,
 .post-meta,
 .post-end-meta,
-.post-toc-nav a,
 #madewith,
 .posisi,
 .lit,
@@ -462,7 +439,7 @@ body.darkmode .trans {
 .footer-link,
 .post-end-meta-label,
 .post-end-meta-value {
-  font-family: "ToneOZ Tsuipita TC";
+  font-family: var(--font-ui);
 }
 
 .markdown-content strong {
@@ -492,6 +469,24 @@ body.darkmode .trans {
   font-size: 1.68rem;
 }
 
+.markdown-content li input[type="checkbox"] {
+  margin-right: 0.7rem;
+  accent-color: #8dc8ff;
+  transform: translateY(1px);
+}
+
+.markdown-content li:has(> input[type="checkbox"]) {
+  list-style: none;
+}
+
+.markdown-content li:has(> input[type="checkbox"]:checked) {
+  color: rgba(99, 170, 235, 0.96);
+}
+
+body.darkmode .markdown-content li:has(> input[type="checkbox"]:checked) {
+  color: #8dc8ff;
+}
+
 .markdown-content li::marker {
   transition: color 0.2s ease;
 }
@@ -506,7 +501,7 @@ body.darkmode .trans {
 }
 
 .markdown-content blockquote {
-  font-family: "ToneOZ Tsuipita TC";
+  font-family: var(--font-body);
   margin: 1.8rem 0;
   padding: 0.2rem 1.4rem;
   border-left-width: 4px;
@@ -522,7 +517,7 @@ body.darkmode .trans {
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.05);
-  font-family: Consolas, Monaco, monospace;
+  font-family: var(--font-code);
   font-size: 0.9em;
 }
 
@@ -577,7 +572,7 @@ body.darkmode .trans {
 .markdown-content pre code,
 .markdown-content figure.highlight code,
 .markdown-content figure.highlight .line {
-  font-family: Consolas, Monaco, monospace;
+  font-family: var(--font-code);
   font-size: 1.45rem;
   line-height: 1.7;
 }
@@ -849,36 +844,6 @@ body.darkmode .markdown-content tbody tr:hover {
   padding: 0.5rem 1rem;
 }
 
-.post-toc {
-  display: none;
-}
-
-.post-toc.is-ready {
-  display: block;
-}
-
-.post-toc-inner {
-  padding-left: 0.4rem;
-}
-
-.post-toc-nav a {
-  display: block;
-  margin: 0.2rem 0;
-  padding: 0.28rem 0;
-  color: rgba(0, 0, 0, 0.5);
-  background-image: none !important;
-  text-decoration: none !important;
-  font-size: 1.35rem;
-  font-weight: 400;
-  line-height: 1.45;
-  border: 0 !important;
-  box-shadow: none !important;
-  transition: color 0.2s ease, font-weight 0.2s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .post-end-meta {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -911,22 +876,6 @@ body.darkmode .markdown-content tbody tr:hover {
 
 .post-end-meta-tags .tag-link {
   margin-right: 0.8rem;
-}
-
-.post-toc-nav a[data-level="3"] {
-  padding-left: 1.1rem;
-}
-
-.post-toc-nav a[data-level="4"] {
-  padding-left: 2rem;
-}
-
-.post-toc-nav a[data-level="5"] {
-  padding-left: 2.9rem;
-}
-
-.post-toc-nav a[data-level="6"] {
-  padding-left: 3.8rem;
 }
 
 code:not(pre code) {
@@ -1072,14 +1021,6 @@ body.darkmode .markdown-content th {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-body.darkmode .post-toc-inner {
-  border-left-color: transparent;
-}
-
-body.darkmode .post-toc-nav a {
-  color: rgba(255, 255, 255, 0.56);
-}
-
 body.darkmode .post-end-meta {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.14);
@@ -1095,7 +1036,7 @@ body.darkmode .post-end-meta-value {
 
 /* blockquote */
 blockquote {
-  font-family: "ToneOZ Tsuipita TC";
+  font-family: var(--font-body);
   background-color: rgba(148, 148, 149, 0.08) ;
   margin: 1.5em 0px;
   padding: 1.1em 20px 1px 20px;
@@ -1103,7 +1044,7 @@ blockquote {
 }
 
 blockquote footer {
-  font-family: "ToneOZ Tsuipita TC";
+  font-family: var(--font-body);
   font-size: 16px;
   padding-bottom: 10px;
   margin-top: -10px;
@@ -1195,6 +1136,20 @@ body.darkmode {
   color: rgb(230, 230, 230);
 }
 
+html.darkmode body {
+  background: rgb(34, 34, 38);
+  color: rgb(230, 230, 230);
+}
+
+html.darkmode .page-loader {
+  background: rgb(34, 34, 38);
+}
+
+html.darkmode .page-loader-spinner {
+  border-color: rgba(255, 255, 255, 0.24);
+  border-top-color: #e6e6e6;
+}
+
 .trans {
   border: 0;
   border-radius: 0;
@@ -1258,13 +1213,22 @@ body.darkmode .archive-item-tags .tag-link {
   margin: 0 0 1.2rem;
 }
 
+.home-post-row {
+  display: block;
+}
+
+.home-post-date,
+.home-post-title {
+  width: auto;
+}
+
 .post-search-input {
   width: 100%;
   min-width: 28ch;
   max-width: 34ch;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 999px;
-  padding: 0.8rem 1rem;
+  border-radius: 9999px;
+  padding: 0.95rem 1.35rem;
   background: rgba(0, 0, 0, 0.05);
   color: inherit;
 }
@@ -1407,8 +1371,56 @@ body.darkmode .daily-card {
   margin-bottom: 1.2rem;
 }
 
+.not-found-page {
+  min-height: 58vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.not-found-page h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(4.8rem, 12vw, 8.4rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.not-found-page p {
+  margin: 0.35rem 0;
+}
+
 .trans {
   animation: transitionFade 0.35s ease-out;
+}
+
+#swup {
+  opacity: 1;
+  transition: opacity 150ms ease;
+  will-change: opacity;
+}
+
+html.is-changing #swup {
+  transition: opacity 110ms ease;
+}
+
+html.is-animating #swup {
+  opacity: 0;
+}
+
+html.is-rendering #swup {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #swup,
+  html.is-changing #swup,
+  html.is-animating #swup,
+  html.is-rendering #swup {
+    transition: none !important;
+    opacity: 1 !important;
+  }
 }
 
 @keyframes transitionFade {
@@ -1449,39 +1461,13 @@ body.darkmode .daily-card {
 }
 
 @media (min-width: 1200px) {
-  .post-shell {
-    padding-right: 260px;
-  }
-
   .post-main {
     max-width: 760px;
     margin: 0 auto;
   }
-
-  .post-toc {
-    position: fixed;
-    top: 20.4rem;
-    transform: translateX(-30px);
-    right: max(2rem, calc(50vw - 515px));
-    width: 200px;
-    max-height: calc(100vh - 14rem);
-    overflow: auto;
-    z-index: 2;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1399px) {
-  .post-toc {
-    right: 2rem;
-    width: 180px;
-  }
 }
 
 @media (max-width: 1199px) {
-  .post-toc {
-    display: none !important;
-  }
-
   .post-end-meta {
     grid-template-columns: 1fr;
   }
@@ -1516,6 +1502,13 @@ body.darkmode .daily-card {
     border-radius: 0;
   }
 
+  .home-post-row {
+    display: grid;
+    grid-template-columns: 10rem minmax(0, 1fr);
+    align-items: start;
+    column-gap: 0.9rem;
+  }
+
   .archive-item {
     grid-template-columns: 72px 1fr;
     gap: 0.6rem;
@@ -1526,7 +1519,6 @@ body.darkmode .daily-card {
 .tag-link,
 .classtest-link,
 .archive-switch-link,
-.post-toc-nav a,
 .pagination a {
   color: rgba(0, 0, 0, 0.82);
   position: relative;
@@ -1544,7 +1536,6 @@ body.darkmode .daily-card {
 .tag-link::before,
 .classtest-link::before,
 .archive-switch-link::before,
-.post-toc-nav a::before,
 .pagination a::before {
   content: "";
   position: absolute;
@@ -1565,9 +1556,6 @@ body.darkmode .daily-card {
 .archive-switch-link:hover,
 .archive-switch-link:focus,
 .archive-switch-link:active,
-.post-toc-nav a:hover,
-.post-toc-nav a:focus,
-.post-toc-nav a:active,
 .pagination a:hover,
 .pagination a:focus,
 .pagination a:active {
@@ -1585,9 +1573,6 @@ body.darkmode .daily-card {
 .archive-switch-link:hover::before,
 .archive-switch-link:focus::before,
 .archive-switch-link:active::before,
-.post-toc-nav a:hover::before,
-.post-toc-nav a:focus::before,
-.post-toc-nav a:active::before,
 .pagination a:hover::before,
 .pagination a:focus::before,
 .pagination a:active::before {
@@ -1598,7 +1583,6 @@ body.darkmode .daily-card {
   .tag-link:hover,
   .classtest-link:hover,
   .archive-switch-link:hover,
-  .post-toc-nav a:hover,
   .pagination a:hover {
     -webkit-backdrop-filter: blur(10px) saturate(120%);
     backdrop-filter: blur(10px) saturate(120%);
@@ -1608,7 +1592,6 @@ body.darkmode .daily-card {
 body.darkmode .tag-link,
 body.darkmode .classtest-link,
 body.darkmode .archive-switch-link,
-body.darkmode .post-toc-nav a,
 body.darkmode .pagination a {
   color: rgba(255, 255, 255, 0.82);
 }
@@ -1622,9 +1605,6 @@ body.darkmode .classtest-link:active,
 body.darkmode .archive-switch-link:hover,
 body.darkmode .archive-switch-link:focus,
 body.darkmode .archive-switch-link:active,
-body.darkmode .post-toc-nav a:hover,
-body.darkmode .post-toc-nav a:focus,
-body.darkmode .post-toc-nav a:active,
 body.darkmode .pagination a:hover,
 body.darkmode .pagination a:focus,
 body.darkmode .pagination a:active {
@@ -1653,20 +1633,19 @@ body.darkmode .pagination a:active {
   }
 
   .archive-item-tags {
-    margin-left: 0;
-    text-align: left;
+    margin-left: auto;
+    text-align: right;
     white-space: normal;
   }
 
   .archive-item-tags .tag-link {
-    margin: 0 0.45rem 0.35rem 0;
+    margin: 0 0 0.35rem 0.45rem;
   }
 }
 
 /* Keep dotted underline disabled only for non-requested areas */
 .tag-link::before,
 .classtest-link::before,
-.post-toc-nav a::before,
 .pagination a::before {
   display: none !important;
   content: none !important;
@@ -1682,7 +1661,7 @@ body.darkmode .pagination a:active {
 html,
 body,
 body *:not(pre):not(code):not(kbd):not(samp) {
-  font-family: "ToneOZ Tsuipita TC" !important;
+  font-family: var(--font-ui) !important;
 }
 
 pre,
@@ -1692,7 +1671,7 @@ samp,
 .markdown-content pre code,
 .markdown-content figure.highlight code,
 .markdown-content figure.highlight .line {
-  font-family: Consolas, Monaco, monospace !important;
+  font-family: var(--font-code) !important;
 }
 
 /* All clickable text turns light green on focus/hover/active */
@@ -1724,9 +1703,6 @@ samp,
 .archive-switch-link:hover,
 .archive-switch-link:focus,
 .archive-switch-link:active,
-.post-toc-nav a:hover,
-.post-toc-nav a:focus,
-.post-toc-nav a:active,
 .pagination a:hover,
 .pagination a:focus,
 .pagination a:active,
@@ -1779,7 +1755,6 @@ body.darkmode .archive-item-tags .classtest-link:is(:hover, :focus, :active) {
 .tag-link:is(:hover, :focus, :active)::before,
 .classtest-link:is(:hover, :focus, :active)::before,
 .archive-switch-link:is(:hover, :focus, :active)::before,
-.post-toc-nav a:is(:hover, :focus, :active)::before,
 .pagination a:is(:hover, :focus, :active)::before,
 .markdown-content p a:is(:hover, :focus, :active)::before,
 .markdown-content li a:is(:hover, :focus, :active)::before,
@@ -1838,7 +1813,6 @@ body.darkmode .markdown-content table a:active {
 .interactive-link::before,
 .tag-link::before,
 .archive-switch-link::before,
-.post-toc-nav a::before,
 .pagination a::before,
 .markdown-content p a::before,
 .markdown-content li a::before,
@@ -1858,7 +1832,6 @@ body.darkmode .markdown-content table a:active {
 .tag-link:is(:hover, :focus, :active),
 .classtest-link:is(:hover, :focus, :active),
 .archive-switch-link:is(:hover, :focus, :active),
-.post-toc-nav a:is(:hover, :focus, :active),
 .pagination a:is(:hover, :focus, :active),
 .markdown-content p a:is(:hover, :focus, :active),
 .markdown-content li a:is(:hover, :focus, :active),
@@ -1871,7 +1844,6 @@ body.darkmode .markdown-content table a:active {
 .interactive-link:is(:hover, :focus, :active)::before,
 .tag-link:is(:hover, :focus, :active)::before,
 .archive-switch-link:is(:hover, :focus, :active)::before,
-.post-toc-nav a:is(:hover, :focus, :active)::before,
 .pagination a:is(:hover, :focus, :active)::before,
 .markdown-content p a:is(:hover, :focus, :active)::before,
 .markdown-content li a:is(:hover, :focus, :active)::before,

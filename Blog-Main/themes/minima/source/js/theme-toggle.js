@@ -1,8 +1,12 @@
-document.addEventListener('DOMContentLoaded', () => {
+const initThemeToggle = () => {
   const darkBtn = document.getElementById('darkBtn');
   const lightBtn = document.getElementById('lightBtn');
 
   if (!darkBtn || !lightBtn) {
+    return;
+  }
+
+  if (darkBtn.dataset.bound === '1' && lightBtn.dataset.bound === '1') {
     return;
   }
 
@@ -17,11 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.removeItem('preferredTheme');
     }
 
+    document.documentElement.classList.toggle('darkmode', isDark);
     document.body.classList.toggle('darkmode', isDark);
   };
 
   darkBtn.addEventListener('click', () => setDarkMode(true));
   lightBtn.addEventListener('click', () => setDarkMode(false));
+  darkBtn.dataset.bound = '1';
+  lightBtn.dataset.bound = '1';
 
   setDarkMode(localStorage.getItem('preferredTheme') === 'dark');
-});
+};
+
+document.addEventListener('DOMContentLoaded', initThemeToggle);
+document.addEventListener('op:page-ready', initThemeToggle);
