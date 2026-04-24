@@ -1,12 +1,16 @@
-const initArchiveSearch = () => {
+document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('archive-search-input');
 
   if (!input) {
     return;
   }
 
-  const items = document.querySelectorAll('.archive-item');
-  const groups = document.querySelectorAll('.archive-group');
+  const items = Array.from(document.querySelectorAll('.archive-item')).map((item) => ({
+    element: item,
+    text: item.getAttribute('data-search') || ''
+  }));
+  const groups = Array.from(document.querySelectorAll('.archive-group'));
+  let searchFrame = 0;
 
   const syncGroups = () => {
     groups.forEach((group) => {
@@ -17,19 +21,26 @@ const initArchiveSearch = () => {
     });
   };
 
-  input.addEventListener('input', () => {
+  const filterItems = () => {
     const keyword = (input.value || '').trim().toLowerCase();
 
-    items.forEach((item) => {
-      const text = item.getAttribute('data-search') || '';
-      item.style.display = !keyword || text.includes(keyword) ? '' : 'none';
+    items.forEach(({ element, text }) => {
+      element.style.display = !keyword || text.includes(keyword) ? '' : 'none';
     });
 
     syncGroups();
+  };
+
+  input.addEventListener('input', () => {
+    if (searchFrame) {
+      window.cancelAnimationFrame(searchFrame);
+    }
+
+    searchFrame = window.requestAnimationFrame(() => {
+      searchFrame = 0;
+      filterItems();
+    });
   });
 
   syncGroups();
-};
-
-document.addEventListener('DOMContentLoaded', initArchiveSearch);
-document.addEventListener('op:page-ready', initArchiveSearch);
+});

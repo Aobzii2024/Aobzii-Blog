@@ -42,7 +42,11 @@
     socialImage = config.url + theme.thumbnail;
   }
 
-  const isContentPage = is_post() || is_page();
+  const hasContent = Boolean(page.content);
+  const contentForFeatureChecks = hasContent ? page.content : '';
+  const hasMath = /\$\$|\\\(|\\\[/.test(contentForFeatureChecks);
+  const shouldLoadToc = is_post();
+  const shouldLoadArchiveSearch = is_archive() || page.archive_mode;
   %>
   <title><%= title %></title>
   <% if (config.sitemap) { %>
@@ -63,7 +67,7 @@
   <meta property="og:image" content="<%- socialImage %>">
   <% } %>
   <meta property="og:site_name" content="<%= config.title %>" />
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="<%= is_post() ? 'article' : 'website' %>" />
   <meta property="og:title" content="<%= title %>" />
   <meta property="og:description" content="<%= pageDescription %>">
   <meta property="og:url" content="<%= cleanUrl %>" />
@@ -85,19 +89,11 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <script>
-    (function () {
-      try {
-        if (localStorage.getItem('preferredTheme') === 'dark') {
-          document.documentElement.classList.add('darkmode');
-        }
-      } catch (e) {}
-    })();
-  </script>
-
   <!-- Preload fonts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="preload" href="/fonts/LXGWWenKaiLite-Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/ToneOZ-Tsuipita-TC.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -119,50 +115,46 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <%- partial('partial/tcolor') %>
 
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true,
-        processEnvironments: true
-      },
-      svg: {
-        fontCache: 'global'
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    };
-  </script>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-  <script src="/js/tex-svg.js" defer></script>
+  <% if (hasMath) { %>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        svg: {
+          fontCache: 'global'
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      };
+    </script>
+    <script src="/js/tex-svg.js" defer></script>
+  <% } %>
 
   <% if (theme.picjs) { %>
   <script src="<%- theme.picjs %>" defer></script>
   <% } %>
-  <script src="/js/page-loader.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
-  <script src="/js/mermaid-init.js" defer></script>
-  <script src="https://unpkg.com/swup@4"></script>
-  <script src="/js/swup-init.js" defer></script>
-  <script src="https://instant.page/5.2.0" type="module" defer></script>
+  <% if (shouldLoadToc) { %>
+    <script src="/js/post-toc.js" defer></script>
+  <% } %>
   <script src="/js/theme-toggle.js" defer></script>
-  <script src="/js/archive-search.js" defer></script>
+  <% if (shouldLoadArchiveSearch) { %>
+    <script src="/js/archive-search.js" defer></script>
+  <% } %>
 
 </head>
 
 <body>
-  <div class="page-loader is-hidden" id="page-loader" aria-hidden="true">
-    <span class="page-loader-spinner"></span>
-  </div>
   <div class="container">
     <div class="row">
       <div>
 
         <%- partial('partial/header') %>
-        <div class="trans" id="swup">
+        <div class="trans">
           <%- body %>
         </div>
         <%- partial('partial/footer') %>

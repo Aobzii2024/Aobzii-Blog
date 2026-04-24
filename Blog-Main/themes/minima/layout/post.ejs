@@ -1,5 +1,5 @@
 <%
-  const plainTextWordCount = page.content.replace(/<[^>]*>/g, '').replace(/\s+/g, '').length;
+  const plainTextWordCount = strip_html(page.content).replace(/&[a-zA-Z0-9#]+;/g, ' ').replace(/\s+/g, '').length;
   const words = page.wordcount || plainTextWordCount;
   const readingMinutes = Math.max(1, Math.ceil(words / 300));
 %>
@@ -42,4 +42,10 @@
       <% } %>
     </footer>
   </div>
+
+  <aside class="post-toc" id="post-toc" aria-label="Table of contents">
+    <div class="post-toc-inner">
+      <nav class="post-toc-nav" id="post-toc-nav"></nav>
+    </div>
+  </aside>
 </article>

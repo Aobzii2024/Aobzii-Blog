@@ -1,5 +1,5 @@
-const runSiteEnhancements = () => {
-  if (window.Nanobar && !window.__opNanobarDone) {
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.Nanobar) {
     const nanobar = new Nanobar({
       classname: 'nanobar',
       id: 'myNanobar'
@@ -7,51 +7,5 @@ const runSiteEnhancements = () => {
     nanobar.go(30);
     nanobar.go(76);
     nanobar.go(100);
-    window.__opNanobarDone = true;
   }
-
-  const normalizeDisplayMathBlocks = () => {
-    const paragraphs = document.querySelectorAll('.markdown-content p');
-
-    paragraphs.forEach((paragraph) => {
-      const raw = (paragraph.textContent || '').trim();
-      const isDisplayMath = raw.startsWith('$$') && raw.endsWith('$$') && raw.length > 4;
-
-      if (!isDisplayMath) {
-        return;
-      }
-
-      const block = document.createElement('div');
-      block.textContent = raw;
-      paragraph.replaceWith(block);
-    });
-  };
-
-  normalizeDisplayMathBlocks();
-
-  const hasMath = Array.from(document.querySelectorAll('.markdown-content p, .markdown-content div')).some(
-    (node) => {
-      const text = (node.textContent || '').trim();
-      return text.includes('$$') || /\$[^\n]+\$/.test(text);
-    }
-  );
-
-  if (!hasMath) {
-    return;
-  }
-
-  const typesetMath = () => {
-    if (window.MathJax && window.MathJax.typesetPromise) {
-      window.MathJax.typesetPromise();
-    }
-  };
-
-  if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
-    window.MathJax.startup.promise.then(typesetMath);
-  } else {
-    window.addEventListener('load', typesetMath);
-  }
-};
-
-document.addEventListener('DOMContentLoaded', runSiteEnhancements);
-document.addEventListener('op:page-ready', runSiteEnhancements);
+});

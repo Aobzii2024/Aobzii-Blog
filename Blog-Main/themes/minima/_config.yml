@@ -15,7 +15,7 @@ menu:
   About: /about/
 
 #index/main page max show posts (in number)
-max_post: 5
+max_post: 4
 
 # Colors use hex color without #
 # Theme color
@@ -29,9 +29,9 @@ usercss: css/user.css
 # social profile at the footer/bottom
 footer: true
 github: https://github.com/Aobzii2024
-outlook: mailto:aobzii2024@outlook.com
-netease_music: https://music.163.com/#/user/home?id=3669845181
-telegram: https://t.me/+wa2hX3Kax9BkNTVh
+outlook: mailto:yourname@outlook.com
+netease_music: https://music.163.com/
+telegram: https://t.me/
 
 # Misc
 nanobar: /js/nanobar.min.js
