@@ -24,6 +24,9 @@ const runSiteEnhancements = () => {
       }
 
       document.documentElement.classList.add('is-navigating');
+      window.setTimeout(() => {
+        document.documentElement.classList.remove('is-navigating');
+      }, 180);
     });
 
     window.addEventListener('pageshow', () => {
@@ -32,17 +35,6 @@ const runSiteEnhancements = () => {
   };
 
   bindNavigationFeedback();
-
-  if (window.Nanobar && !window.__opNanobarDone) {
-    const nanobar = new Nanobar({
-      classname: 'nanobar',
-      id: 'myNanobar'
-    });
-    nanobar.go(30);
-    nanobar.go(76);
-    nanobar.go(100);
-    window.__opNanobarDone = true;
-  }
 
   const normalizeDisplayMathBlocks = () => {
     const paragraphs = document.querySelectorAll('.markdown-content p');
