@@ -1,9 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
+const initArchiveSearch = () => {
   const input = document.getElementById('archive-search-input');
 
   if (!input) {
     return;
   }
+
+  if (input.dataset.bound === '1') {
+    return;
+  }
+
+  input.dataset.bound = '1';
 
   const items = Array.from(document.querySelectorAll('.archive-item')).map((item) => ({
     element: item,
@@ -43,4 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   syncGroups();
-});
+};
+
+document.addEventListener('DOMContentLoaded', initArchiveSearch);
+document.addEventListener('op:page-ready', initArchiveSearch);

@@ -1,4 +1,8 @@
 const runSiteEnhancements = () => {
+  const emitPageReady = () => {
+    document.dispatchEvent(new CustomEvent('op:page-ready'));
+  };
+
   const bindNavigationFeedback = () => {
     if (window.__opNavigationFeedbackBound) {
       return;
@@ -6,9 +10,64 @@ const runSiteEnhancements = () => {
 
     window.__opNavigationFeedbackBound = true;
 
+    const loadPage = async (url, options = {}) => {
+      const currentContent = document.getElementById('page-content');
+      if (!currentContent) {
+        window.location.href = url.href;
+        return;
+      }
+
+      document.documentElement.classList.add('is-navigating');
+
+      try {
+        const response = await fetch(url.href, {
+          headers: { 'X-Requested-With': 'fetch' }
+        });
+
+        if (!response.ok) {
+          throw new Error('Navigation request failed');
+        }
+
+        const html = await response.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const nextContent = doc.getElementById('page-content');
+
+        if (!nextContent) {
+          throw new Error('Missing page content');
+        }
+
+        document.title = doc.title;
+        currentContent.replaceWith(nextContent);
+        if (options.replace) {
+          window.history.replaceState({}, doc.title, url.href);
+        } else {
+          window.history.pushState({}, doc.title, url.href);
+        }
+
+        window.scrollTo(0, 0);
+        emitPageReady();
+      } catch (error) {
+        window.location.href = url.href;
+      } finally {
+        window.setTimeout(() => {
+          document.documentElement.classList.remove('is-navigating');
+        }, 120);
+      }
+    };
+
     document.addEventListener('click', (event) => {
       const link = event.target.closest('a[href]');
-      if (!link || link.target === '_blank' || link.hasAttribute('download')) {
+      if (
+        !link ||
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        link.target === '_blank' ||
+        link.hasAttribute('download')
+      ) {
         return;
       }
 
@@ -23,10 +82,12 @@ const runSiteEnhancements = () => {
         return;
       }
 
-      document.documentElement.classList.add('is-navigating');
-      window.setTimeout(() => {
-        document.documentElement.classList.remove('is-navigating');
-      }, 180);
+      event.preventDefault();
+      loadPage(url);
+    });
+
+    window.addEventListener('popstate', () => {
+      loadPage(new URL(window.location.href), { replace: true });
     });
 
     window.addEventListener('pageshow', () => {
