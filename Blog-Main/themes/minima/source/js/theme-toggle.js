@@ -13,6 +13,7 @@ const initThemeToggle = () => {
     const darkIcon = toggle.dataset.darkIcon || 'Dark';
     const lightIcon = toggle.dataset.lightIcon || 'Light';
 
+    document.documentElement.classList.add('theme-switching');
     document.documentElement.classList.toggle('darkmode', isDark);
     document.body.classList.toggle('darkmode', isDark);
     toggle.textContent = isDark ? lightIcon : darkIcon;
@@ -23,6 +24,10 @@ const initThemeToggle = () => {
     } else {
       localStorage.removeItem('preferredTheme');
     }
+
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('theme-switching');
+    }, 260);
   };
 
   toggle.addEventListener('click', () => {

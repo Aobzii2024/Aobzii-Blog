@@ -47,7 +47,7 @@ body {
   padding: 5px;
   overflow-y: auto;
   overflow-x: clip;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.24s ease, color 0.24s ease;
 }
 
 body.darkmode,
@@ -153,16 +153,18 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 4.6rem;
+  min-width: 2.8rem;
+  min-height: 2.8rem;
   padding: 0.15rem 0.45rem;
   border: 0;
-  border-radius: 0.6em;
+  border-radius: 999px;
   background: transparent;
   color: inherit;
   cursor: pointer;
   font: inherit;
-  line-height: 1.2;
+  line-height: 1;
   user-select: none;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.24s ease;
 }
 
 .theme-toggle:is(:hover, :focus, :active) {
@@ -170,6 +172,10 @@ img {
   background: var(--hover-bg);
   box-shadow: var(--hover-shadow);
   outline: none;
+}
+
+html.theme-switching .theme-toggle {
+  transform: rotate(180deg) scale(1.04);
 }
 
 .header-divider {
@@ -196,6 +202,37 @@ img {
   padding: 0;
   background: transparent;
   box-shadow: none;
+  animation: pageEnter 0.18s ease-out both;
+  transition: opacity 0.14s ease, transform 0.14s ease;
+}
+
+html.is-navigating .trans {
+  opacity: 0.72;
+  transform: translateY(2px);
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0.96;
+    transform: translateY(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trans,
+  .theme-toggle,
+  html.is-navigating .trans,
+  html.theme-switching .theme-toggle {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
 
 .interactive-link,

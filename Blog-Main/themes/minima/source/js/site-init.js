@@ -1,4 +1,38 @@
 const runSiteEnhancements = () => {
+  const bindNavigationFeedback = () => {
+    if (window.__opNavigationFeedbackBound) {
+      return;
+    }
+
+    window.__opNavigationFeedbackBound = true;
+
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href]');
+      if (!link || link.target === '_blank' || link.hasAttribute('download')) {
+        return;
+      }
+
+      const url = new URL(link.href, window.location.href);
+      const isSameOrigin = url.origin === window.location.origin;
+      const isSamePageHash =
+        url.pathname === window.location.pathname &&
+        url.search === window.location.search &&
+        url.hash;
+
+      if (!isSameOrigin || isSamePageHash) {
+        return;
+      }
+
+      document.documentElement.classList.add('is-navigating');
+    });
+
+    window.addEventListener('pageshow', () => {
+      document.documentElement.classList.remove('is-navigating');
+    });
+  };
+
+  bindNavigationFeedback();
+
   if (window.Nanobar && !window.__opNanobarDone) {
     const nanobar = new Nanobar({
       classname: 'nanobar',
