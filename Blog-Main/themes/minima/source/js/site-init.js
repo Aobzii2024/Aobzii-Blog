@@ -46,10 +46,28 @@ const runSiteEnhancements = () => {
     }
   };
 
+  const loadMathJax = () => {
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      typesetMath();
+      return;
+    }
+
+    if (document.querySelector('script[data-mathjax-loader]')) {
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = '/js/tex-svg.js';
+    script.defer = true;
+    script.dataset.mathjaxLoader = '1';
+    script.addEventListener('load', typesetMath, { once: true });
+    document.head.appendChild(script);
+  };
+
   if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
     window.MathJax.startup.promise.then(typesetMath);
   } else {
-    window.addEventListener('load', typesetMath);
+    loadMathJax();
   }
 };
 

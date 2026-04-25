@@ -10,9 +10,12 @@ const initThemeToggle = () => {
   }
 
   const setDarkMode = (isDark) => {
+    const darkIcon = toggle.dataset.darkIcon || 'Dark';
+    const lightIcon = toggle.dataset.lightIcon || 'Light';
+
     document.documentElement.classList.toggle('darkmode', isDark);
     document.body.classList.toggle('darkmode', isDark);
-    toggle.textContent = isDark ? 'Light' : 'Dark';
+    toggle.textContent = isDark ? lightIcon : darkIcon;
     toggle.setAttribute('aria-pressed', String(isDark));
 
     if (isDark) {

@@ -1,8 +1,4 @@
 const initMermaidDiagrams = () => {
-  if (!window.mermaid) {
-    return;
-  }
-
   const mermaidCodeBlocks = Array.from(
     document.querySelectorAll('pre code.language-mermaid, pre code.lang-mermaid')
   );
@@ -18,6 +14,20 @@ const initMermaidDiagrams = () => {
   );
 
   if (!mermaidCodeBlocks.length && !plaintextFigures.length) {
+    return;
+  }
+
+  if (!window.mermaid) {
+    if (document.querySelector('script[data-mermaid-loader]')) {
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+    script.defer = true;
+    script.dataset.mermaidLoader = '1';
+    script.addEventListener('load', initMermaidDiagrams, { once: true });
+    document.head.appendChild(script);
     return;
   }
 
