@@ -138,49 +138,6 @@ img {
   font-weight: 300;
 }
 
-.page-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: none;
-  transition: opacity 0.24s ease, visibility 0.24s ease;
-}
-
-.page-loader.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.page-loader-spinner {
-  width: 42px;
-  height: 42px;
-  border: 1.6px solid rgba(0, 0, 0, 0.18);
-  border-top-color: #111;
-  border-radius: 50%;
-  animation: pageLoaderSpin 0.72s linear infinite;
-}
-
-html.darkmode .page-loader {
-  background: rgb(34, 34, 38);
-}
-
-html.darkmode .page-loader-spinner {
-  border-color: rgba(255, 255, 255, 0.24);
-  border-top-color: #e6e6e6;
-}
-
-@keyframes pageLoaderSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .mode {
   position: absolute;
   display: block;
@@ -192,10 +149,27 @@ html.darkmode .page-loader-spinner {
   max-width: 50px;
 }
 
-.interactive-toggle {
-  display: inline-block;
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.6rem;
+  padding: 0.15rem 0.45rem;
+  border: 0;
+  border-radius: 0.6em;
+  background: transparent;
+  color: inherit;
   cursor: pointer;
+  font: inherit;
+  line-height: 1.2;
   user-select: none;
+}
+
+.theme-toggle:is(:hover, :focus, :active) {
+  color: var(--accent);
+  background: var(--hover-bg);
+  box-shadow: var(--hover-shadow);
+  outline: none;
 }
 
 .header-divider {
@@ -222,44 +196,10 @@ html.darkmode .page-loader-spinner {
   padding: 0;
   background: transparent;
   box-shadow: none;
-  animation: transitionFade 0.35s ease-out;
 }
 
 #swup {
   opacity: 1;
-  transition: opacity 150ms ease;
-  will-change: opacity;
-}
-
-html.is-changing #swup {
-  transition: opacity 110ms ease;
-}
-
-html.is-animating #swup,
-html.is-rendering #swup {
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .trans,
-  #swup,
-  html.is-changing #swup,
-  html.is-animating #swup,
-  html.is-rendering #swup {
-    animation: none !important;
-    transition: none !important;
-    opacity: 1 !important;
-  }
-}
-
-@keyframes transitionFade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
 }
 
 .interactive-link,

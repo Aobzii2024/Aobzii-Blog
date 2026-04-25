@@ -1,34 +1,31 @@
 const initThemeToggle = () => {
-  const darkBtn = document.getElementById('darkBtn');
-  const lightBtn = document.getElementById('lightBtn');
+  const toggle = document.getElementById('themeToggle');
 
-  if (!darkBtn || !lightBtn) {
+  if (!toggle) {
     return;
   }
 
-  if (darkBtn.dataset.bound === '1' && lightBtn.dataset.bound === '1') {
+  if (toggle.dataset.bound === '1') {
     return;
   }
 
   const setDarkMode = (isDark) => {
-    if (isDark) {
-      lightBtn.style.display = 'block';
-      darkBtn.style.display = 'none';
-      localStorage.setItem('preferredTheme', 'dark');
-    } else {
-      lightBtn.style.display = 'none';
-      darkBtn.style.display = 'block';
-      localStorage.removeItem('preferredTheme');
-    }
-
     document.documentElement.classList.toggle('darkmode', isDark);
     document.body.classList.toggle('darkmode', isDark);
+    toggle.textContent = isDark ? 'Light' : 'Dark';
+    toggle.setAttribute('aria-pressed', String(isDark));
+
+    if (isDark) {
+      localStorage.setItem('preferredTheme', 'dark');
+    } else {
+      localStorage.removeItem('preferredTheme');
+    }
   };
 
-  darkBtn.addEventListener('click', () => setDarkMode(true));
-  lightBtn.addEventListener('click', () => setDarkMode(false));
-  darkBtn.dataset.bound = '1';
-  lightBtn.dataset.bound = '1';
+  toggle.addEventListener('click', () => {
+    setDarkMode(!document.documentElement.classList.contains('darkmode'));
+  });
+  toggle.dataset.bound = '1';
 
   setDarkMode(localStorage.getItem('preferredTheme') === 'dark');
 };
