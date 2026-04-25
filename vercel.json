@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd Blog-Main && npm ci",
-  "buildCommand": "cd Blog-Main && npm run build",
-  "outputDirectory": "Blog-Main/public"
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "public"
 }
