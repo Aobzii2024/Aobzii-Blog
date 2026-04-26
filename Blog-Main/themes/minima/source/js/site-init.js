@@ -97,6 +97,20 @@ const runSiteEnhancements = () => {
 
   bindNavigationFeedback();
 
+  const optimizeImages = () => {
+    const images = Array.from(document.querySelectorAll('img'));
+
+    images.forEach((image, index) => {
+      image.decoding = 'async';
+
+      if (index > 0 && !image.hasAttribute('loading')) {
+        image.loading = 'lazy';
+      }
+    });
+  };
+
+  optimizeImages();
+
   const normalizeDisplayMathBlocks = () => {
     const paragraphs = document.querySelectorAll('.markdown-content p');
 
