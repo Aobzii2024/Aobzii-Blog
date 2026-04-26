@@ -49,8 +49,10 @@ const runSiteEnhancements = () => {
       } catch (error) {
         window.location.href = url.href;
       } finally {
+        document.documentElement.classList.add('is-loaded');
         window.setTimeout(() => {
           document.documentElement.classList.remove('is-navigating');
+          document.documentElement.classList.remove('is-loaded');
         }, 120);
       }
     };
