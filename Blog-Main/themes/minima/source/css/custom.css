@@ -1067,6 +1067,33 @@ body.darkmode .daily-card {
   opacity: 0.75;
 }
 
+.daily-content {
+  font-size: 1.58rem;
+  line-height: 1.72;
+}
+
+.daily-content p,
+.daily-content li {
+  white-space: pre-line;
+}
+
+.daily-content p {
+  margin: 0.55rem 0;
+}
+
+.daily-content ul,
+.daily-content ol {
+  margin: 0.65rem 0;
+}
+
+.daily-content blockquote {
+  margin: 0.9rem 0;
+}
+
+.daily-content img {
+  margin: 0.9rem auto;
+}
+
 .page-content h2 {
   margin-bottom: 1.2rem;
 }
