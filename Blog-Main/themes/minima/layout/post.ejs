@@ -23,20 +23,20 @@
 
     <footer class="post-end-meta">
       <div class="post-end-meta-item">
-        <span class="post-end-meta-label">Published</span>
+        <span class="post-end-meta-label">发布于</span>
         <span class="post-end-meta-value"><%- full_date(page.date, 'll') %></span>
       </div>
       <div class="post-end-meta-item">
-        <span class="post-end-meta-label">Words</span>
+        <span class="post-end-meta-label">字数</span>
         <span class="post-end-meta-value"><%= words %></span>
       </div>
       <div class="post-end-meta-item">
-        <span class="post-end-meta-label">Reading Time</span>
-        <span class="post-end-meta-value"><%= readingMinutes %> min</span>
+        <span class="post-end-meta-label">阅读时间</span>
+        <span class="post-end-meta-value"><%= readingMinutes %> 分钟</span>
       </div>
       <% if (page.tags && page.tags.length) { %>
         <div class="post-end-meta-item post-end-meta-tags">
-          <span class="post-end-meta-label">Tags</span>
+          <span class="post-end-meta-label">标签</span>
           <span class="post-end-meta-value"><%- list_tags(page.tags, {class: 'classtest', show_count: false, style: false}) %></span>
         </div>
       <% } %>

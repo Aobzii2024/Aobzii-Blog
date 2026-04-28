@@ -142,16 +142,25 @@
   </script>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <script src="/js/theme-config.js" defer></script>
   <% if (theme.picjs) { %>
   <script src="<%- theme.picjs %>" defer></script>
   <% } %>
+  <script src="/js/navigation-init.js" defer></script>
+  <script src="/js/media-init.js" defer></script>
+  <script src="/js/math-init.js" defer></script>
   <script src="/js/mermaid-init.js" defer></script>
   <script src="/js/theme-toggle.js" defer></script>
   <script src="/js/archive-search.js" defer></script>
+  <script src="/js/code-tools.js" defer></script>
+  <script src="/js/reveal-init.js" defer></script>
+  <script src="/js/reading-progress.js" defer></script>
 
 </head>
 
 <body>
+  <div id="reading-progress" class="reading-progress" hidden aria-hidden="true"></div>
+  <div class="site-backdrop" aria-hidden="true"></div>
   <div class="container">
     <div class="row">
       <div>

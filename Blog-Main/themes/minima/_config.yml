@@ -1,32 +1,20 @@
-#title in header
 title: "Aobzii"
 
-#main info
-#owner
 owner: "Aobzii"
-info: "A blog about notes, daily fragments, and rambles."
-#description
-desc: "Lost tea egg, found in writing."
+info: "一个记录笔记、日常碎片与漫谈的博客。"
+desc: "丢失的茶叶蛋，在文字里找回。"
 
-#menu
 menu:
-  Daily: /daily/
-  Archive: /archives/
-  About: /about/
+  日常: /daily/
+  归档: /archives/
+  关于: /about/
 
-#index/main page max show posts (in number)
 max_post: 5
 
-# Colors use hex color without #
-# Theme color
 tcolor: 8FCF9D
 
-# Define path to user css
-#(could be also located outside of theme)
-# Relative to source/ directory
 usercss: css/user.css
 
-# social profile at the footer/bottom
 footer: true
 github: https://github.com/Aobzii2024
 outlook: mailto:aobzii2024@outlook.com
@@ -36,12 +24,9 @@ telegram: https://t.me/+wa2hX3Kax9BkNTVh
 switch_light: ☀️
 switch_dark: 🌑
 
-# Picture enlargement
 picjs: /js/pic.min.js
 
-# favicon
 favicon: /images/main.jpg
-# thumbnail
 thumbnail: /images/main.jpg
 
 article:

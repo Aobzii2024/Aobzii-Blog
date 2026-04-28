@@ -17,8 +17,8 @@
         tagGroups[tag.name].push(post);
       });
     } else {
-      if (!tagGroups['untagged']) tagGroups['untagged'] = [];
-      tagGroups['untagged'].push(post);
+      if (!tagGroups['未分类标签']) tagGroups['未分类标签'] = [];
+      tagGroups['未分类标签'].push(post);
     }
   });
 
@@ -27,14 +27,14 @@
 %>
 
 <div class="archive-shell <%- mode === 'time' ? 'archive-shell-time' : '' %>">
-  <h2>Archive</h2>
+  <h2>归档</h2>
   <div class="archive-switch">
-    <a href="<%- url_for('/archives/') %>" class="archive-switch-link <%- mode === 'time' ? 'is-active' : '' %>">By Time</a>
-    <a href="<%- url_for('/archives/tag/') %>" class="archive-switch-link <%- mode === 'tag' ? 'is-active' : '' %>">By Tag</a>
+    <a href="<%- url_for('/archives/') %>" class="archive-switch-link <%- mode === 'time' ? 'is-active' : '' %>">按时间</a>
+    <a href="<%- url_for('/archives/tag/') %>" class="archive-switch-link <%- mode === 'tag' ? 'is-active' : '' %>">按标签</a>
   </div>
 
   <div class="post-search-wrap">
-    <input id="archive-search-input" class="post-search-input" type="search" placeholder="Search by title or tag." aria-label="Search archive">
+    <input id="archive-search-input" class="post-search-input" type="search" placeholder="按标题或标签搜索" aria-label="搜索归档">
   </div>
 
   <% if (mode === 'time') { %>
@@ -52,7 +52,7 @@
             <div class="archive-item-date"><%- full_date(post.date, 'MM-DD') %></div>
             <div class="archive-item-main">
               <div class="archive-item-title-row">
-                <a href="<%- url_for(post.path) %>" class="interactive-link"><%- post.title || 'no title' %></a>
+                <a href="<%- url_for(post.path) %>" class="interactive-link"><%- post.title || '未命名' %></a>
                 <% if (post.tags && post.tags.length) { %>
                   <div class="archive-item-tags"><%- list_tags(post.tags, {class: 'classtest', show_count: false, style: false}) %></div>
                 <% } %>
@@ -70,7 +70,7 @@
           <article class="archive-item" data-search="<%- ((post.title || '') + ' ' + tagName).toLowerCase() %>">
             <div class="archive-item-date"><%- full_date(post.date, 'YYYY-MM-DD') %></div>
             <div class="archive-item-main">
-              <a href="<%- url_for(post.path) %>" class="interactive-link"><%- post.title || 'no title' %></a>
+              <a href="<%- url_for(post.path) %>" class="interactive-link"><%- post.title || '未命名' %></a>
             </div>
           </article>
         <% }) %>

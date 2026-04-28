@@ -1,42 +1,49 @@
-const initThemeToggle = () => {
-  const toggle = document.getElementById('themeToggle');
+(() => {
+  const config = window.__minimaTheme || {};
+  const selectors = config.selectors || {};
+  const events = config.events || {};
+  const attributes = config.attributes || {};
 
-  if (!toggle) {
-    return;
-  }
+  const initThemeToggle = () => {
+    const toggle = document.querySelector(selectors.themeToggle || '#themeToggle');
 
-  if (toggle.dataset.bound === '1') {
-    return;
-  }
-
-  const setDarkMode = (isDark) => {
-    const darkIcon = toggle.dataset.darkIcon || 'Dark';
-    const lightIcon = toggle.dataset.lightIcon || 'Light';
-
-    document.documentElement.classList.add('theme-switching');
-    document.documentElement.classList.toggle('darkmode', isDark);
-    document.body.classList.toggle('darkmode', isDark);
-    toggle.textContent = isDark ? lightIcon : darkIcon;
-    toggle.setAttribute('aria-pressed', String(isDark));
-
-    if (isDark) {
-      localStorage.setItem('preferredTheme', 'dark');
-    } else {
-      localStorage.removeItem('preferredTheme');
+    if (!toggle) {
+      return;
     }
 
-    window.setTimeout(() => {
-      document.documentElement.classList.remove('theme-switching');
-    }, 260);
+    if (toggle.getAttribute(attributes.bound || 'data-bound') === '1') {
+      return;
+    }
+
+    const setDarkMode = (isDark) => {
+      const darkIcon = toggle.getAttribute(attributes.darkIcon || 'data-dark-icon') || 'Dark';
+      const lightIcon = toggle.getAttribute(attributes.lightIcon || 'data-light-icon') || 'Light';
+
+      document.documentElement.classList.add('theme-switching');
+      document.documentElement.classList.toggle('darkmode', isDark);
+      document.body.classList.toggle('darkmode', isDark);
+      toggle.textContent = isDark ? lightIcon : darkIcon;
+      toggle.setAttribute('aria-pressed', String(isDark));
+
+      if (isDark) {
+        localStorage.setItem('preferredTheme', 'dark');
+      } else {
+        localStorage.removeItem('preferredTheme');
+      }
+
+      window.setTimeout(() => {
+        document.documentElement.classList.remove('theme-switching');
+      }, 260);
+    };
+
+    toggle.addEventListener('click', () => {
+      setDarkMode(!document.documentElement.classList.contains('darkmode'));
+    });
+    toggle.setAttribute(attributes.bound || 'data-bound', '1');
+
+    setDarkMode(localStorage.getItem('preferredTheme') === 'dark');
   };
 
-  toggle.addEventListener('click', () => {
-    setDarkMode(!document.documentElement.classList.contains('darkmode'));
-  });
-  toggle.dataset.bound = '1';
-
-  setDarkMode(localStorage.getItem('preferredTheme') === 'dark');
-};
-
-document.addEventListener('DOMContentLoaded', initThemeToggle);
-document.addEventListener('op:page-ready', initThemeToggle);
+  document.addEventListener('DOMContentLoaded', initThemeToggle);
+  document.addEventListener(events.pageReady || 'op:page-ready', initThemeToggle);
+})();

@@ -90,6 +90,21 @@ The active theme is `Blog-Main/themes/minima`. Important files:
 - `layout/archive.ejs`: archive and tag grouping.
 - `layout/daily.ejs`: daily card page.
 - `source/css/custom.css`: custom visual system and responsive rules.
-- `source/js/`: theme toggle, archive search, MathJax setup, Mermaid setup, page transition helpers, and site initialization.
+- `source/js/theme-config.js`: shared theme selectors, events, and attribute keys.
+- `source/js/theme-toggle.js`: dark mode state and toggle behavior.
+- `source/js/archive-search.js`: archive filtering interaction.
+- `source/js/mermaid-init.js`: Mermaid detection and rendering.
+- `source/js/site-init.js`: page transition, image optimization, and MathJax bootstrapping.
 
 The visual style uses LXGW WenKai Lite as the site font and keeps code blocks on system monospace fonts.
+
+## Frontend Script Architecture
+
+The theme JavaScript now follows a small shared configuration pattern:
+
+- `theme-config.js` defines reusable selectors, custom event names, and shared data attribute names.
+- Feature scripts read from that shared config instead of hardcoding the same DOM contracts repeatedly.
+- `site-init.js` remains the runtime entry for page enhancement and emits the `op:page-ready` event after client-side page swaps.
+- `theme-toggle.js`, `archive-search.js`, and `mermaid-init.js` subscribe to the same lifecycle event so they can re-initialize after partial page navigation.
+
+This keeps the current lightweight vanilla JavaScript approach, while reducing coupling caused by duplicated selectors and event names across multiple files.

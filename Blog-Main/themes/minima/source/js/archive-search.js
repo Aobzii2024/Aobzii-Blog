@@ -1,55 +1,62 @@
-const initArchiveSearch = () => {
-  const input = document.getElementById('archive-search-input');
+(() => {
+  const config = window.__minimaTheme || {};
+  const selectors = config.selectors || {};
+  const events = config.events || {};
+  const attributes = config.attributes || {};
 
-  if (!input) {
-    return;
-  }
+  const initArchiveSearch = () => {
+    const input = document.querySelector(selectors.archiveSearchInput || '#archive-search-input');
 
-  if (input.dataset.bound === '1') {
-    return;
-  }
+    if (!input) {
+      return;
+    }
 
-  input.dataset.bound = '1';
+    if (input.getAttribute(attributes.bound || 'data-bound') === '1') {
+      return;
+    }
 
-  const items = Array.from(document.querySelectorAll('.archive-item')).map((item) => ({
-    element: item,
-    text: item.getAttribute('data-search') || ''
-  }));
-  const groups = Array.from(document.querySelectorAll('.archive-group'));
-  let searchFrame = 0;
+    input.setAttribute(attributes.bound || 'data-bound', '1');
 
-  const syncGroups = () => {
-    groups.forEach((group) => {
-      const visibleItems = Array.from(group.querySelectorAll('.archive-item')).filter(
-        (item) => item.style.display !== 'none'
-      );
-      group.style.display = visibleItems.length ? '' : 'none';
-    });
-  };
+    const items = Array.from(document.querySelectorAll(selectors.archiveItem || '.archive-item')).map((item) => ({
+      element: item,
+      text: item.getAttribute('data-search') || ''
+    }));
+    const groups = Array.from(document.querySelectorAll(selectors.archiveGroup || '.archive-group'));
+    let searchFrame = 0;
 
-  const filterItems = () => {
-    const keyword = (input.value || '').trim().toLowerCase();
+    const syncGroups = () => {
+      groups.forEach((group) => {
+        const visibleItems = Array.from(group.querySelectorAll(selectors.archiveItem || '.archive-item')).filter(
+          (item) => item.style.display !== 'none'
+        );
+        group.style.display = visibleItems.length ? '' : 'none';
+      });
+    };
 
-    items.forEach(({ element, text }) => {
-      element.style.display = !keyword || text.includes(keyword) ? '' : 'none';
+    const filterItems = () => {
+      const keyword = (input.value || '').trim().toLowerCase();
+
+      items.forEach(({ element, text }) => {
+        element.style.display = !keyword || text.includes(keyword) ? '' : 'none';
+      });
+
+      syncGroups();
+    };
+
+    input.addEventListener('input', () => {
+      if (searchFrame) {
+        window.cancelAnimationFrame(searchFrame);
+      }
+
+      searchFrame = window.requestAnimationFrame(() => {
+        searchFrame = 0;
+        filterItems();
+      });
     });
 
     syncGroups();
   };
 
-  input.addEventListener('input', () => {
-    if (searchFrame) {
-      window.cancelAnimationFrame(searchFrame);
-    }
-
-    searchFrame = window.requestAnimationFrame(() => {
-      searchFrame = 0;
-      filterItems();
-    });
-  });
-
-  syncGroups();
-};
-
-document.addEventListener('DOMContentLoaded', initArchiveSearch);
-document.addEventListener('op:page-ready', initArchiveSearch);
+  document.addEventListener('DOMContentLoaded', initArchiveSearch);
+  document.addEventListener(events.pageReady || 'op:page-ready', initArchiveSearch);
+})();
