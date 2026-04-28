@@ -186,6 +186,7 @@ img {
 
 .mode {
   position: absolute;
+  left: -0.45rem;
   display: block;
   cursor: pointer;
   user-select: none;
