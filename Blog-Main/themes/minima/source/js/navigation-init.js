@@ -10,9 +10,13 @@
     document.dispatchEvent(new CustomEvent(events.pageReady || 'op:page-ready'));
   };
 
+  const shouldUseNativeNavigation = () => {
+    return window.matchMedia('(max-width: 640px), (pointer: coarse)').matches;
+  };
+
   const loadPage = async (url, options = {}) => {
     const currentContent = document.querySelector(selectors.pageContent || '#page-content');
-    if (!currentContent) {
+    if (!currentContent || shouldUseNativeNavigation()) {
       window.location.href = url.href;
       return;
     }
@@ -87,7 +91,7 @@
         url.search === window.location.search &&
         url.hash;
 
-      if (!isSameOrigin || isSamePageHash) {
+      if (!isSameOrigin || isSamePageHash || shouldUseNativeNavigation()) {
         return;
       }
 

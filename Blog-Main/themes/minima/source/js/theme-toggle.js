@@ -4,24 +4,32 @@
   const events = config.events || {};
   const attributes = config.attributes || {};
 
+  const applyTheme = (isDark) => {
+    document.documentElement.classList.toggle('darkmode', isDark);
+    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+
+    if (document.body) {
+      document.body.classList.toggle('darkmode', isDark);
+    }
+  };
+
   const initThemeToggle = () => {
     const toggle = document.querySelector(selectors.themeToggle || '#themeToggle');
 
     if (!toggle) {
+      applyTheme(localStorage.getItem('preferredTheme') === 'dark');
       return;
     }
 
-    if (toggle.getAttribute(attributes.bound || 'data-bound') === '1') {
-      return;
-    }
-
-    const setDarkMode = (isDark) => {
+    const setDarkMode = (isDark, options = {}) => {
       const darkIcon = toggle.getAttribute(attributes.darkIcon || 'data-dark-icon') || 'Dark';
       const lightIcon = toggle.getAttribute(attributes.lightIcon || 'data-light-icon') || 'Light';
 
-      document.documentElement.classList.add('theme-switching');
-      document.documentElement.classList.toggle('darkmode', isDark);
-      document.body.classList.toggle('darkmode', isDark);
+      if (options.animate) {
+        document.documentElement.classList.add('theme-switching');
+      }
+
+      applyTheme(isDark);
       toggle.textContent = isDark ? lightIcon : darkIcon;
       toggle.setAttribute('aria-pressed', String(isDark));
 
@@ -31,13 +39,20 @@
         localStorage.removeItem('preferredTheme');
       }
 
-      window.setTimeout(() => {
-        document.documentElement.classList.remove('theme-switching');
-      }, 260);
+      if (options.animate) {
+        window.setTimeout(() => {
+          document.documentElement.classList.remove('theme-switching');
+        }, 180);
+      }
     };
 
+    if (toggle.getAttribute(attributes.bound || 'data-bound') === '1') {
+      setDarkMode(localStorage.getItem('preferredTheme') === 'dark');
+      return;
+    }
+
     toggle.addEventListener('click', () => {
-      setDarkMode(!document.documentElement.classList.contains('darkmode'));
+      setDarkMode(!document.documentElement.classList.contains('darkmode'), { animate: true });
     });
     toggle.setAttribute(attributes.bound || 'data-bound', '1');
 

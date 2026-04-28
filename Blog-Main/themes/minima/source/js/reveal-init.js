@@ -13,8 +13,17 @@
     '.post-header'
   ].join(', ');
 
+  const shouldReduceRevealWork = () => {
+    return window.matchMedia('(max-width: 640px), (pointer: coarse), (prefers-reduced-motion: reduce)').matches;
+  };
+
   const markRevealItems = () => {
     const nodes = Array.from(document.querySelectorAll(revealSelector));
+
+    if (shouldReduceRevealWork()) {
+      nodes.forEach((node) => node.classList.add('is-visible'));
+      return;
+    }
 
     nodes.forEach((node, index) => {
       node.classList.add('reveal-item');

@@ -90,8 +90,13 @@
       try {
         if (localStorage.getItem('preferredTheme') === 'dark') {
           document.documentElement.classList.add('darkmode');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.style.colorScheme = 'light';
         }
-      } catch (e) {}
+      } catch (e) {
+        document.documentElement.style.colorScheme = 'light';
+      }
     })();
   </script>
   <style>
